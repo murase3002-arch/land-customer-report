@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>不動産会社様向けチラシ — Consul t i e 連携パートナー</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif; }
+    @page { size: A4 portrait; margin: 0; }
+    @media print {
+      html, body { background: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .flyer-page { box-shadow: none !important; margin: 0 !important; border-radius: 0 !important; }
+      .no-print { display: none !important; }
+    }
+    @media screen {
+      body { background: #e2e8f0; }
+    }
+    .flyer-page {
+      width: 210mm;
+      min-height: 297mm;
+      box-sizing: border-box;
+      padding: 12mm 14mm;
+      background: #fff;
+      margin: 1rem auto;
+    }
+  </style>
+</head>
+<body class="text-slate-800 text-[10.5pt] leading-snug">
+
+  <p class="no-print text-center text-sm text-slate-500 py-3 px-4">
+    ブラウザの「印刷」から A4・縦・両面（短辺とじ推奨）で出力してください。連絡先・QRは貴社情報に差し替えてください。
+  </p>
+
+  <!-- ==================== 表面 ==================== -->
+  <section class="flyer-page rounded-lg shadow-md border border-slate-200 overflow-hidden" aria-label="チラシ表面">
+    <header class="flex items-start justify-between gap-4 pb-3 border-b-2 border-slate-900">
+      <div>
+        <p class="text-[9px] font-semibold tracking-wider text-slate-500 uppercase mb-0.5">Real estate partnership</p>
+        <h1 class="text-[17pt] font-bold text-slate-900 leading-tight">
+          家づくりで迷うお客様へ<br>
+          <span class="text-blue-700">「つなぐ」だけ</span>のご提案
+        </h1>
+        <p class="text-[11px] text-slate-600 mt-2">土地・不動産は貴社、住まいの専門相談は私どもが分担します。</p>
+      </div>
+      <div class="shrink-0 text-right">
+        <div class="inline-flex items-center justify-center w-[22mm] h-[22mm] bg-slate-100 border-2 border-dashed border-slate-300 text-[8px] text-slate-500 text-center p-1 leading-tight">
+          QR<br>問い合わせ用
+        </div>
+      </div>
+    </header>
+
+    <div class="mt-3 flex items-center gap-2">
+      <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center shrink-0">
+        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+      </div>
+      <div>
+        <p class="text-[11px] font-bold text-slate-900">Consul t i e株式会社</p>
+        <p class="text-[9.5px] text-slate-600">家づくり・住まいの専門コンサルティング</p>
+      </div>
+    </div>
+    <ul class="mt-2 space-y-0.5 text-[9.5px] text-slate-600">
+      <li class="flex gap-1.5"><span class="text-blue-600 font-bold">・</span>住宅会社紹介 累計3,000件以上</li>
+      <li class="flex gap-1.5"><span class="text-blue-600 font-bold">・</span>中立の立場で、希望・予算・エリアに合う住宅会社を厳選</li>
+      <li class="flex gap-1.5"><span class="text-blue-600 font-bold">・</span>土地・建物・資金計画まで一貫サポート</li>
+      <li class="flex gap-1.5"><span class="text-blue-600 font-bold">・</span>SNSで家づくり検討層にリーチ（例：Instagram フォロワー9万人超）</li>
+    </ul>
+
+    <div class="mt-4 p-3 rounded-xl bg-blue-50 border border-blue-100">
+      <p class="text-[11px] font-bold text-slate-900 mb-1">貴社にお願いしたいこと（これだけです）</p>
+      <p class="text-[10px] text-slate-700">
+        ご来店・ご相談のお客様のうち、<span class="font-semibold text-slate-900">家づくり・住宅会社選びに悩んでいる方</span>へ、私どもの<span class="font-semibold text-blue-800">公式LINE登録</span>をご案内ください。
+      </p>
+      <ul class="mt-2 space-y-0.5 text-[9.5px] text-slate-600">
+        <li>お名前・住所・電話番号・メールアドレスなどは不要で開始できます（設計は要相談）</li>
+        <li>お客様からの相談がない限り、こちらから営業連絡は行いません（条件は契約で明確化）</li>
+      </ul>
+    </div>
+
+    <div class="mt-3 grid grid-cols-3 gap-2">
+      <div class="rounded-lg bg-slate-50 border border-slate-200 p-2">
+        <p class="text-[9px] font-bold text-slate-500 mb-0.5">01</p>
+        <p class="text-[10px] font-semibold text-slate-900">お客様満足</p>
+        <p class="text-[8.5px] text-slate-600 mt-0.5">住宅会社選びまで支援し信頼向上</p>
+      </div>
+      <div class="rounded-lg bg-slate-50 border border-slate-200 p-2">
+        <p class="text-[9px] font-bold text-slate-500 mb-0.5">02</p>
+        <p class="text-[10px] font-semibold text-slate-900">収益機会</p>
+        <p class="text-[8.5px] text-slate-600 mt-0.5">登録・着工など条件に応じた協力金</p>
+      </div>
+      <div class="rounded-lg bg-slate-50 border border-slate-200 p-2">
+        <p class="text-[9px] font-bold text-slate-500 mb-0.5">03</p>
+        <p class="text-[10px] font-semibold text-slate-900">手間は最小</p>
+        <p class="text-[8.5px] text-slate-600 mt-0.5">案内と連携運用に専念しやすい設計</p>
+      </div>
+    </div>
+
+    <div class="mt-4 pt-3 border-t border-slate-200 flex justify-between items-end gap-3 text-[8.5px] text-slate-500">
+      <div>
+        <p class="font-semibold text-slate-700 text-[9px] mb-0.5">お問い合わせ（差し替え）</p>
+        <p>TEL：　　　　　　　　　　／ Mail：　　　　　　　　　　</p>
+        <p>担当：　　　　　　　　　　／ Web：　　　　　　　　　　</p>
+      </div>
+      <p class="text-[8px] text-slate-400 max-w-[45mm] text-right">協力条件・特典・表記は貴社と協議のうえ、契約書・覚書で定めます。</p>
+    </div>
+  </section>
+
+  <!-- ==================== 裏面 ==================== -->
+  <section class="flyer-page rounded-lg shadow-md border border-slate-200 overflow-hidden" aria-label="チラシ裏面">
+    <h2 class="text-[13pt] font-bold text-slate-900 border-b border-slate-200 pb-2">連携の流れ・条件のイメージ</h2>
+    <p class="text-[9px] text-slate-500 mt-1">詳細・定義（同一顧客・支払サイト等）は契約で取り決めます。下図は説明用です。</p>
+
+    <ol class="mt-3 space-y-1.5">
+      <li class="flex gap-2 items-start">
+        <span class="shrink-0 w-5 h-5 rounded-full bg-slate-800 text-white text-[9px] font-bold flex items-center justify-center">1</span>
+        <span class="text-[10px]"><span class="font-semibold text-slate-900">不動産会社様</span>：お客様へ公式LINE登録をご案内</span>
+      </li>
+      <li class="flex gap-2 items-start">
+        <span class="shrink-0 w-5 h-5 rounded-full bg-emerald-600 text-white text-[9px] font-bold flex items-center justify-center">2</span>
+        <span class="text-[10px]"><span class="font-semibold text-slate-900">お客様</span>：公式LINEで家づくり相談（無料）</span>
+      </li>
+      <li class="flex gap-2 items-start">
+        <span class="shrink-0 w-5 h-5 rounded-full bg-indigo-600 text-white text-[9px] font-bold flex items-center justify-center">3</span>
+        <span class="text-[10px]"><span class="font-semibold text-slate-900">Consul t i e</span>：ご希望があれば最適な住宅会社をご紹介</span>
+      </li>
+      <li class="flex gap-2 items-start">
+        <span class="shrink-0 w-5 h-5 rounded-full bg-violet-600 text-white text-[9px] font-bold flex items-center justify-center">4</span>
+        <span class="text-[10px]"><span class="font-semibold text-slate-900">ご紹介先</span>で建築契約が成立</span>
+      </li>
+      <li class="flex gap-2 items-start">
+        <span class="shrink-0 w-5 h-5 rounded-full bg-amber-600 text-white text-[9px] font-bold flex items-center justify-center">5</span>
+        <span class="text-[10px]"><span class="font-semibold text-slate-900">着工タイミング</span>で貴社へ協力金をお支払い（条件付）</span>
+      </li>
+    </ol>
+
+    <div class="mt-3 grid grid-cols-2 gap-2">
+      <div class="rounded-lg border border-emerald-200 bg-emerald-50/80 p-2.5">
+        <p class="text-[10px] font-bold text-emerald-900">LINE登録が発生した場合（例）</p>
+        <p class="text-[16pt] font-bold text-emerald-800 mt-1">1,000円<span class="text-[10px] font-normal">／件</span></p>
+        <p class="text-[8px] text-emerald-900/80 mt-0.5">定義・無効登録の扱いは契約で規定</p>
+      </div>
+      <div class="rounded-lg border border-indigo-200 bg-indigo-50/80 p-2.5">
+        <p class="text-[10px] font-bold text-indigo-900">建築契約・着工が確定した場合（例）</p>
+        <p class="text-[16pt] font-bold text-indigo-800 mt-1">50万円</p>
+        <p class="text-[8px] text-indigo-900/80 mt-0.5">着工の定義・重複紹介は事前に合意</p>
+      </div>
+    </div>
+
+    <div class="mt-3 rounded-lg bg-slate-50 border border-slate-200 p-2.5">
+      <p class="text-[10px] font-bold text-slate-900 mb-1">お客様にとってのメリット（案内時にお使いください）</p>
+      <ul class="text-[9px] text-slate-600 space-y-0.5">
+        <li>・不動産会社だけではカバーしきれない「住宅会社の比較・見積・間取り」の第三者視点</li>
+        <li>・無料、messaging を中心とした相談（押し売りにならない運用を徹底）</li>
+        <li>・予算・好みに合う会社に情報を絞れる／土地探し中・営業後も相談可能</li>
+      </ul>
+    </div>
+
+    <div class="mt-3">
+      <p class="text-[10px] font-bold text-slate-900 mb-1">よくあるご質問（短答）</p>
+      <dl class="text-[9px] space-y-1.5">
+        <div>
+          <dt class="font-semibold text-slate-800">Q. 個人情報は必須ですか？</dt>
+          <dd class="text-slate-600">A. LINE登録時点では不要を原則とし、ルールは事前共有します。</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-slate-800">Q. こちらからお客様に営業されますか？</dt>
+          <dd class="text-slate-600">A. お客様からの相談がない限り、当方から貴社・お客様へ営業連絡は行いません（契約条項で担保）。</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-slate-800">Q. 特典（QUOカード等）は？</dt>
+          <dd class="text-slate-600">A. 内容・周知方法は貴社と協議し、景品表示法等に沿って運用します。</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="mt-3 flex gap-3 items-start text-[8px] text-slate-500 border-t border-slate-100 pt-2">
+      <div class="flex-1">
+        <p class="font-semibold text-slate-600 text-[9px]">オプション（要相談）</p>
+        <p class="mt-0.5">店内POP・チラシ同梱、SNSでの相互紹介など柔軟に対応します。</p>
+      </div>
+      <div class="shrink-0 w-px h-10 bg-slate-200"></div>
+      <div class="text-[8px] text-slate-400 text-right leading-tight">
+        Consul t i e株式会社<br>
+        （所在地・登録番号等はここに記載）<br>
+        <span class="text-[7px]">本チラシは2026年時点の案内イメージです。最終条件は契約書をご確認ください。</span>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
