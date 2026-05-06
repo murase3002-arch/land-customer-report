@@ -70,7 +70,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue','Hiragino San
 <div class="cover">
   <div class="cover-eyebrow">10分発表原稿</div>
   <div class="cover-title">🏠 土地なし管理客<br>週次レポートシステム</div>
-  <div class="cover-sub">Google Apps Script × Claude AI による<br>不動産顧客フォロー管理の完全自動化</div>
+  <div class="cover-sub">スプレッドシートのデータを自動で読み取り、AIが分析して<br>毎週Gmailでお知らせする仕組みを作りました</div>
   <div class="cover-tags">
     <span class="cover-tag">⏱ 全6パート・約10分</span>
     <span class="cover-tag">📱 図解・完成画面を見せながら話す</span>
@@ -87,9 +87,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue','Hiragino San
     <div class="sc">
       <p>本日は、私が作成した<span class="em">「土地なし管理客 週次レポートシステム」</span>についてご紹介します。</p>
       <p>まず、このシステムを作ろうと思ったきっかけからお話しします。</p>
-      <p>不動産営業では、スプレッドシートでお客様を管理していますが、毎週<span class="er">「誰を今週フォローすべきか」「ローンの期日が迫っているお客様はいないか」</span>を手作業で確認するのは、時間がかかる上に見落とすリスクがありました。</p>
-      <p>特に<span class="er">ローン特約期日</span>は、期限を過ぎると契約が白紙になるリスクがあるため、絶対に見落とせません。</p>
-      <p>そこで、<span class="em">「毎週自動で、要点だけを届ける」</span>仕組みを作りました。</p>
+      <p>不動産営業では、スプレッドシートでお客様を管理していますが、毎週<span class="er">「今週誰に連絡すべきか」「ローンの期日が近いお客様はいないか」</span>を手作業で確認するのは、時間がかかる上に見落とすリスクがありました。</p>
+      <p>特に<span class="er">ローン特約の期日</span>は、期限を過ぎると契約が白紙になってしまうリスクがあるため、絶対に見落とせません。</p>
+      <p>そこで、<span class="em">「毎週自動で、大事なことだけを届ける」</span>仕組みを作りました。</p>
     </div>
   </div>
 </div>
@@ -100,12 +100,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue','Hiragino San
     <div class="pbox pb-blue">〔システム図解を画面で見せながら話す〕<br>👉 <strong><a href="system-diagram.html" style="color:#1e40af">system-diagram.html</a></strong></div>
     <div class="sc"><p>こちらがシステムの全体図です。処理は大きく<span class="em">6つのステップ</span>に分かれています。</p></div>
     <div class="sl">
-      <div class="si"><div class="snb sn1">①</div><div><span class="em">自動トリガー起動</span>：毎週木曜日の朝9時に自動で起動します。一度設定すれば、以降は何もしなくても動き続けます。</div></div>
-      <div class="si"><div class="snb sn2">②</div><div><span class="em">スプレッドシート読み込み</span>：2シートからA〜J列の10項目を一括取得します。お客様名・フォロー状況・ローン特約期日・各チェックボックスなどです。</div></div>
-      <div class="si"><div class="snb sn3">③</div><div><span class="em">スマートフィルタリング</span>：「誰を表示するか・しないか」を複数の条件で自動判断します。詳しくは後ほどの工夫ポイントでご説明します。</div></div>
-      <div class="si"><div class="snb sn4">④</div><div><span class="em">Claude AIでサマリー生成</span>：Anthropic社のAIに今週やるべきことを2行で返してもらいます。</div></div>
-      <div class="si"><div class="snb sn5">⑤</div><div><span class="em">HTMLメール送信</span>：見やすく整形したレポートをGmailで自動送信します。</div></div>
-      <div class="si"><div class="snb sn6">⑥</div><div><span class="em">ステージパイプライン</span>：紹介あり→HM契約→土地契約→ローン本申込→決裁案内という5段階で顧客の進捗を管理します。</div></div>
+      <div class="si"><div class="snb sn1">①</div><div><span class="em">自動でスタート</span>：毎週木曜日の朝9時に、誰も操作しなくても自動でシステムが起動します。一度設定すれば、ずっと動き続けます。</div></div>
+      <div class="si"><div class="snb sn2">②</div><div><span class="em">スプレッドシートからデータを読み込む</span>：お客様の名前・連絡状況・ローン特約の期日・各チェックボックスなど、必要な情報をすべて自動で取得します。</div></div>
+      <div class="si"><div class="snb sn3">③</div><div><span class="em">必要な情報だけを選ぶ</span>：「誰を表示するか・しないか」を複数の条件で自動的に判断します。詳しくは後ほどの工夫ポイントでご説明します。</div></div>
+      <div class="si"><div class="snb sn4">④</div><div><span class="em">AIが今週やることをまとめる</span>：人工知能（AI）が顧客の状況を見て、今週やるべきことを2行で作成します。</div></div>
+      <div class="si"><div class="snb sn5">⑤</div><div><span class="em">メールを自動送信</span>：見やすくデザインされたレポートを、Gmailで自動的に送信します。</div></div>
+      <div class="si"><div class="snb sn6">⑥</div><div><span class="em">商談の進み具合を管理</span>：住宅会社の紹介あり→住宅会社との契約→土地契約→ローン本申込→決裁案内という5段階でお客様の状況を管理します。</div></div>
     </div>
   </div>
 </div>
@@ -116,9 +116,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue','Hiragino San
     <div class="pbox pb-purple">〔Gmailプレビューを画面で見せながら話す〕<br>👉 <strong><a href="gmail-preview.html" style="color:#5b21b6">gmail-preview.html</a></strong></div>
     <div class="sc">
       <p>こちらが実際にGmailに届くメールの画面です。</p>
-      <p>上から順に、<span class="ep">グラデーションのヘッダー</span>で日付と曜日を表示。その下に<span class="ep">4枚の統計カード</span>があり、総顧客数・未フォロー数・フォロー中・ローン期日警告が一目で分かります。</p>
-      <p>次に<span class="ep">AIアドバイス</span>が2行で表示されます。その下に<span class="er">ローンアラート</span>と<span class="er">要フォロー顧客リスト</span>、最後に<span class="ep">ステージ別進捗バー</span>という構成です。</p>
-      <p>重要なのは、<span class="em">スマートフォンで開いた瞬間に、統計カードとAIアドバイスが1画面に収まる</span>ことです。開いて5秒で「今日何をすべきか」が分かります。</p>
+      <p>上から順に、<span class="ep">カラフルなタイトル部分</span>で日付と曜日を表示。その下に<span class="ep">4枚の数字カード</span>があり、お客様の総数・まだ連絡していない人数・対応中の人数・ローンの期日が近い人数が一目で分かります。</p>
+      <p>次に<span class="ep">AIからのアドバイス</span>が2行で表示されます。その下に<span class="er">ローン期日の警告</span>と<span class="er">連絡が必要なお客様のリスト</span>、最後に<span class="ep">商談の進み具合グラフ</span>という構成です。</p>
+      <p>重要なのは、<span class="em">スマートフォンで開いた瞬間に、数字カードとAIのアドバイスが1画面に収まる</span>ことです。開いて5秒で「今日何をすべきか」が分かります。</p>
     </div>
   </div>
 </div>
@@ -127,35 +127,41 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue','Hiragino San
   <div class="ph"><div class="pi">⚡</div><div class="pm"><div class="pn">Part 04</div><div class="pt">工夫したポイント（ここがメイン！）</div></div><div class="pbadge">⏱ 約4分</div></div>
   <div class="pb">
     <div class="sc"><p>今回最も力を入れた<span class="em">工夫ポイントを6つ</span>ご紹介します。</p></div>
+
     <div class="dv">工夫① 4つのパーツの決め方</div>
     <div class="sc">
       <p><span class="em">なぜメールをこの4つのパーツ構成にしたか</span>についてです。</p>
-      <p>設計のコンセプトは<span class="eb">「開いて5秒で判断できる」</span>でした。忙しい朝に長いレポートを読む時間はありません。そこで情報の優先度を考え、上から「数字→AIの一言→緊急アラート→詳細リスト」の順に並べました。特に<span class="er">ローンアラートはAIアドバイスの直下に配置</span>し、最優先で目に入るようにしています。</p>
+      <p>設計のコンセプトは<span class="eb">「開いて5秒で判断できる」</span>でした。忙しい朝に長いレポートを読む時間はありません。そこで情報の大切さを考え、上から「数字→AIの一言→緊急アラート→詳細リスト」の順に並べました。特に<span class="er">ローンの期日警告はAIアドバイスのすぐ下に配置</span>し、最優先で目に入るようにしています。</p>
     </div>
-    <div class="dv">工夫② 既存の運用を一切変えない設計</div>
+
+    <div class="dv">工夫② 今のスプレッドシートの使い方を一切変えない</div>
     <div class="sc">
-      <p><span class="em">スプレッドシートの運用方法を1つも変えていません。</span></p>
-      <p>今回は<span class="eg">列の並び・チェックボックスの使い方・灰色塗りによる管理方法、すべてそのまま</span>使えるよう、システム側が合わせる設計にしました。</p>
+      <p><span class="em">スプレッドシートの使い方を1つも変えていません。</span></p>
+      <p>今回は<span class="eg">列の並び・チェックボックスの使い方・灰色に塗って管理する方法、すべてそのまま</span>使えるよう、システム側が合わせる設計にしました。</p>
     </div>
-    <div class="dv">工夫③ 背景色を読み取る打ち切り客の除外</div>
+
+    <div class="dv">工夫③ 灰色に塗るだけで終了したお客様を自動除外</div>
     <div class="sc">
-      <p>スプレッドシートでは「終了した顧客の行を濃い灰色に塗る」慣習があります。<span class="eb">A列の背景色をRGB値として読み取り</span>、グレー系かつ一定の明るさ以下という条件でプログラムが自動判定します。<span class="em">今まで通り灰色に塗るだけで自動除外</span>されます。</p>
+      <p>スプレッドシートでは「対応が終わったお客様の行を濃い灰色に塗る」使い方をされていました。<span class="eb">その行の色の情報をシステムが自動で読み取り</span>、灰色かどうかをプログラムが判断します。<span class="em">今まで通り灰色に塗るだけで、自動的にレポートから除外</span>されます。</p>
     </div>
-    <div class="dv">工夫④ ローンアラートの精密な3条件判定</div>
-    <div class="sc"><p>ローン特約期日のアラートは、単純に「期日が近い」だけで出すと<span class="er">誤通知</span>が発生します。「もうローン本申込を済ませたのにアラートが出続ける」という問題が実際に起きました。そこで3つの条件を組み合わせました。</p></div>
+
+    <div class="dv">工夫④ 本当に必要なときだけローンアラートを表示</div>
+    <div class="sc"><p>ローン特約の期日アラートは、単純に「期日が近い」だけで表示すると<span class="er">間違った通知</span>が出てしまいます。「もうローン本申込を済ませたのにアラートが出続ける」という問題が実際に起きました。そこで3つの条件を組み合わせました。</p></div>
     <div class="pbox pb-amber">
-      <strong>🚨 アラートを出す</strong>：期日まで14日以内 かつ ローン本申込チェックなし<br>
-      <strong>🔕 アラートを消す</strong>：ローン本申込チェックあり → 申込済みなので通知不要<br>
-      <strong>✅ フォローリストから除外</strong>：期日超過 かつ 本申込済み → 手続き完了とみなす
+      <strong>🚨 アラートを表示する</strong>：期日まで14日以内 かつ ローン本申込のチェックがない<br>
+      <strong>🔕 アラートを表示しない</strong>：ローン本申込のチェックがある → 申込済みなので通知不要<br>
+      <strong>✅ リストから完全除外</strong>：期日が過ぎていて申込済み → 手続き完了とみなす
     </div>
-    <div class="sc"><p><span class="em">必要な人だけにアラートが届く</span>、誤通知ゼロの設計です。</p></div>
-    <div class="dv">工夫⑤ AIサマリーを「必ず短く返す」仕組み</div>
+    <div class="sc"><p><span class="em">本当に動く必要があるお客様だけにアラートが届く</span>、間違い通知ゼロの設計です。</p></div>
+
+    <div class="dv">工夫⑤ AIへの指示で「必ず短く返す」仕組み</div>
     <div class="sc">
-      <p>Claude AIに普通に依頼すると<span class="er">長文が返ってきてスマホで3スクロール分</span>になってしまいました。そこで2段階の制限をかけました。プロンプトで「<span class="ep">箇条書き2行のみ・1行は30文字以内・余計な前置き不要</span>」と明記し、さらに<span class="ep">max_tokensを120に制限</span>することで、物理的に長文が返せない設計にしています。</p>
+      <p>AIに普通に依頼すると<span class="er">長い文章が返ってきてスマホで3回スクロールしないと読めない</span>量になってしまいました。そこで2段階の制限をかけました。AIへの指示文に「<span class="ep">箇条書き2行のみ・1行は30文字以内・余計な前置きは不要</span>」と明記し、さらに<span class="ep">返答できる文字数の上限を設けた</span>ことで、どんな場合でも必ずコンパクトな内容が返ってくる設計にしています。</p>
     </div>
-    <div class="dv">工夫⑥ メールで崩れないtableレイアウト</div>
+
+    <div class="dv">工夫⑥ どのメールアプリでも崩れないレイアウト</div>
     <div class="sc">
-      <p>GmailなどのメールアプリはCSS Grid・Flexboxを<span class="er">正しく解釈できない</span>ことがあります。そこで統計カードや顧客カードをすべて昔ながらの<span class="eb">&lt;table&gt;タグ</span>で構築し直しました。見た目はモダンで美しく、でも裏側は確実に表示される構造です。</p>
+      <p>Gmailなどのメールアプリはウェブサイトではよく使われる最新のレイアウト方法を<span class="er">うまく表示できない</span>ことがあります。そのため数字カードやお客様カードをすべて昔ながらの<span class="eb">「表組み形式」</span>で作り直しました。見た目はきれいで美しく、でも裏の仕組みは確実に表示される構造になっています。</p>
     </div>
   </div>
 </div>
@@ -164,32 +170,40 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue','Hiragino San
   <div class="ph"><div class="pi">🧩</div><div class="pm"><div class="pn">Part 05</div><div class="pt">ぶつかった課題とその解決</div></div><div class="pbadge">⏱ 約1分</div></div>
   <div class="pb">
     <div class="sc"><p>開発中に特に苦労した課題を2つご紹介します。</p></div>
-    <div class="pbox pb-red"><strong>課題①：GASエディタでSyntaxErrorが発生</strong><br>コードを貼り付けた際に「SyntaxError: Unexpected end of input 行:479」というエラーが出ました。コードが途中で切れた状態で貼り付けられていたことが原因でした。<br><br><strong>→ 解決：</strong>コードファイル全体を最初から最後まで一括コピーし直し、GASエディタの既存コードをすべて削除してから貼り付ける手順を徹底しました。</div>
-    <div class="pbox pb-amber" style="margin-top:10px"><strong>課題②：お客様の名前が崩れて表示される</strong><br>スプレッドシートのセルに全角スペースやセル内改行が混入していて名前が崩れて表示されていました。<br><br><strong>→ 解決：</strong>cleanName()という関数を作り、全角スペースを半角に変換・改行をスペースに置換・連続スペースを1つにまとめる処理を自動化しました。</div>
+    <div class="pbox pb-red">
+      <strong>課題①：スクリプトを貼り付けたらエラーが出た</strong><br>
+      プログラムをスクリプトエディタに貼り付けて実行しようとしたところ、「479行目でエラーが発生しました」という表示が出ました。プログラムの途中が切れた状態で貼り付けられていたことが原因でした。<br><br>
+      <strong>→ 解決：</strong>プログラムファイルを最初から最後まで全部コピーし直し、エディタの中身を全部消してから貼り付ける手順を徹底しました。保存してから実行する順序を守ることで解消しました。
+    </div>
+    <div class="pbox pb-amber" style="margin-top:10px">
+      <strong>課題②：お客様の名前が正しく表示されなかった</strong><br>
+      スプレッドシートのセルに全角スペースやセル内の改行が混じっていて、名前が崩れて表示されていました。<br><br>
+      <strong>→ 解決：</strong>名前の自動修正機能を作り、全角スペースを半角に変換・改行をスペースに置き換え・連続するスペースを1つにまとめる処理を自動化しました。
+    </div>
   </div>
 </div>
 
 <div class="part t6">
-  <div class="ph"><div class="pi">🎯</div><div class="pm"><div class="pn">Part 06</div><div class="pt">まとめ・導入効果・今後の展望</div></div><div class="pbadge">⏱ 約1分</div></div>
+  <div class="ph"><div class="pi">🎯</div><div class="pm"><div class="pn">Part 06</div><div class="pt">まとめ・効果・今後の展望</div></div><div class="pbadge">⏱ 約1分</div></div>
   <div class="pb">
     <div class="sc"><p>今回のシステムで実現できたことを、<span class="em">「3つのゼロ」</span>でまとめます。</p></div>
     <div class="sum-box">
-      <div class="sum-title">✅ システム導入で実現した「3つのゼロ」</div>
-      <div class="sum-item"><div class="sb">①</div><div><strong>見落としゼロ</strong>：ローン期日や長期未フォローを自動検知。毎週木曜9時に確実に通知が届くため、人間が気にしなくてよくなりました。</div></div>
-      <div class="sum-item"><div class="sb">②</div><div><strong>現場負担ゼロ</strong>：既存のスプレッドシートをそのまま使い続けられます。新しい入力ルールも別ツールの学習も一切不要です。</div></div>
-      <div class="sum-item"><div class="sb">③</div><div><strong>判断の迷いゼロ</strong>：AIが「今週やること」を2行で提示。出社直後にメールを開けば、その日の最優先アクションがすぐに分かります。</div></div>
+      <div class="sum-title">✅ このシステムで実現した「3つのゼロ」</div>
+      <div class="sum-item"><div class="sb">①</div><div><strong>見落としゼロ</strong>：ローン期日や長い間フォローしていないお客様を自動で検知。毎週木曜9時に確実に通知が届くため、大事なことを人間が気にしなくてよくなりました。</div></div>
+      <div class="sum-item"><div class="sb">②</div><div><strong>現場負担ゼロ</strong>：今のスプレッドシートをそのまま使い続けられます。新しい入力ルールも、別ツールの学習も一切不要です。</div></div>
+      <div class="sum-item"><div class="sb">③</div><div><strong>判断の迷いゼロ</strong>：AIが「今週やること」を2行で届けます。出社してメールを開くだけで、その日に最優先でやることがすぐに分かります。</div></div>
     </div>
     <div class="sc">
-      <p>今後の展望としては、フォロー内容をAIが自動記録する機能や、LINE通知への対応なども検討しています。</p>
-      <p>このシステムの最大の特徴は、<span class="em">「現場の使い方を変えずに、自動化の恩恵だけを受け取れる」</span>点です。</p>
+      <p>今後の展望としては、フォローした内容をAIが自動で記録する機能や、LINEへの通知対応なども考えています。</p>
+      <p>このシステムの最大の特徴は、<span class="em">「現場の使い方を変えずに、自動化の便利さだけを受け取れる」</span>点です。</p>
       <p>ご清聴ありがとうございました。ご質問があればお受けします。</p>
     </div>
-    <div class="dv">想定Q&amp;A</div>
+    <div class="dv">想定される質問と回答</div>
     <div class="qa-grid">
-      <div class="qa-card"><div class="qa-q">Q. AIが間違った内容を返したら？</div><div class="qa-a">AIサマリーはあくまで参考情報です。詳細はメール下部の顧客カードで確認できるためAIに頼りすぎない設計にしています。</div></div>
-      <div class="qa-card"><div class="qa-q">Q. 他のスタッフも使えますか？</div><div class="qa-a">GASのCONFIGにメールアドレスを追加するだけで複数人に同時送信できます。</div></div>
-      <div class="qa-card"><div class="qa-q">Q. メンテナンスは必要ですか？</div><div class="qa-a">列の構成が変わった場合のみCOL定数の修正が必要です。通常運用では手動操作は不要です。</div></div>
-      <div class="qa-card"><div class="qa-q">Q. コストはかかりますか？</div><div class="qa-a">GAS・Gmailは無料。Claude APIは週1回・120トークン以内の使用であれば月数十円程度です。</div></div>
+      <div class="qa-card"><div class="qa-q">Q. AIが間違った内容を返したら？</div><div class="qa-a">AIのアドバイスはあくまで参考情報です。詳しい内容はメール下部のお客様カードで確認できるため、AIだけに頼らない設計になっています。</div></div>
+      <div class="qa-card"><div class="qa-q">Q. 他のスタッフも使えますか？</div><div class="qa-a">設定画面にメールアドレスを追加するだけで、複数人に同時に送ることができます。</div></div>
+      <div class="qa-card"><div class="qa-q">Q. メンテナンスは必要ですか？</div><div class="qa-a">スプレッドシートの列の順番が変わった場合のみ、設定の修正が必要です。通常の運用では手動操作は一切不要です。</div></div>
+      <div class="qa-card"><div class="qa-q">Q. 費用はかかりますか？</div><div class="qa-a">スプレッドシートの自動化機能・Gmailは無料。AIは週1回・少ない文字数しか使わないため、月に数十円程度です。</div></div>
     </div>
   </div>
 </div>

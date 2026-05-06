@@ -69,7 +69,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue','Hiragino San
 .m-step-n{font-size:6px;font-weight:800;letter-spacing:.5px}
 .m-step-t{font-size:9px;font-weight:800;color:#111}
 .m-step-d{font-size:6px;color:#666;line-height:1.5}
-.m-tag{display:inline-block;font-size:5px;padding:1px 4px;border-radius:6px;font-weight:600;margin:1px 1px 0 0}
 
 /* Innovation */
 .inno-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
@@ -126,11 +125,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue','Hiragino San
 <div class="cover">
   <div class="cover-eyebrow">提出用レポート</div>
   <div class="cover-title">🏠 土地なし管理客<br>週次レポートシステム</div>
-  <div class="cover-sub">Google Apps Script × Claude AI による<br>不動産顧客フォロー管理の完全自動化</div>
+  <div class="cover-sub">スプレッドシートのデータを読み取り、AIが分析して<br>毎週自動でメール報告する仕組み</div>
   <div class="cover-tags">
     <span class="cover-tag">🗓 毎週木曜 9:00 自動実行</span>
-    <span class="cover-tag">📊 Google スプレッドシート連携</span>
-    <span class="cover-tag">✨ Claude AI サマリー搭載</span>
+    <span class="cover-tag">📊 スプレッドシート連携</span>
+    <span class="cover-tag">✨ AI アドバイス搭載</span>
     <span class="cover-tag">📧 Gmail 自動送信</span>
   </div>
 </div>
@@ -164,34 +163,34 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue','Hiragino San
     </div>
 
     <div class="ss-card">
-      <div class="ss-label">🗺 システム図解（処理フロー） <span class="badge">6ステップ</span></div>
+      <div class="ss-label">🗺 システム図解（処理の流れ） <span class="badge">6ステップ</span></div>
       <div class="ss-body">
         <div class="m-diag">
-          <div class="m-diag-ttl"><h3>🏠 土地なし管理客 週次レポートシステム</h3><p>Google Apps Script + Claude AI による完全自動化フロー</p></div>
+          <div class="m-diag-ttl"><h3>🏠 土地なし管理客 週次レポートシステム</h3><p>スプレッドシート＋AIによる自動報告の流れ</p></div>
           <div style="padding:8px 0">
             <div class="m-step" style="margin-top:5px">
               <div class="m-step-l"><div class="m-step-ic" style="background:linear-gradient(135deg,#6366f1,#818cf8);color:white">⏰</div><div class="m-step-ln" style="background:linear-gradient(to bottom,#6366f1,#10b981)"></div></div>
-              <div class="m-step-b" style="border-top-color:#6366f1"><div class="m-step-n" style="color:#6366f1">STEP 01</div><div class="m-step-t">自動トリガー起動</div><div class="m-step-d">毎週木曜日 朝9:00 に自動起動</div></div>
+              <div class="m-step-b" style="border-top-color:#6366f1"><div class="m-step-n" style="color:#6366f1">STEP 01</div><div class="m-step-t">自動で起動</div><div class="m-step-d">毎週木曜日 朝9:00 に自動でスタート</div></div>
             </div>
             <div class="m-step">
               <div class="m-step-l"><div class="m-step-ic" style="background:linear-gradient(135deg,#10b981,#34d399);color:white">📊</div><div class="m-step-ln" style="background:linear-gradient(to bottom,#10b981,#f59e0b)"></div></div>
-              <div class="m-step-b" style="border-top-color:#10b981"><div class="m-step-n" style="color:#10b981">STEP 02</div><div class="m-step-t">スプレッドシート読み込み</div><div class="m-step-d">2シート / A〜J列（10項目）一括取得</div></div>
+              <div class="m-step-b" style="border-top-color:#10b981"><div class="m-step-n" style="color:#10b981">STEP 02</div><div class="m-step-t">データを読み込む</div><div class="m-step-d">スプレッドシートから顧客情報を自動取得</div></div>
             </div>
             <div class="m-step">
               <div class="m-step-l"><div class="m-step-ic" style="background:linear-gradient(135deg,#f59e0b,#fbbf24);color:white">🔍</div><div class="m-step-ln" style="background:linear-gradient(to bottom,#f59e0b,#7c3aed)"></div></div>
-              <div class="m-step-b" style="border-top-color:#f59e0b"><div class="m-step-n" style="color:#f59e0b">STEP 03</div><div class="m-step-t">スマートフィルタリング</div><div class="m-step-d">打ち切り客除外 / ローンアラート判定</div></div>
+              <div class="m-step-b" style="border-top-color:#f59e0b"><div class="m-step-n" style="color:#f59e0b">STEP 03</div><div class="m-step-t">必要な情報だけ選ぶ</div><div class="m-step-d">終了した顧客を除外・期日アラートを判定</div></div>
             </div>
             <div class="m-step">
               <div class="m-step-l"><div class="m-step-ic" style="background:linear-gradient(135deg,#7c3aed,#a855f7);color:white">✨</div><div class="m-step-ln" style="background:linear-gradient(to bottom,#7c3aed,#3b82f6)"></div></div>
-              <div class="m-step-b" style="border-top-color:#7c3aed"><div class="m-step-n" style="color:#7c3aed">STEP 04</div><div class="m-step-t">Claude AI サマリー生成</div><div class="m-step-d">2行・30文字以内・max_tokens:120</div></div>
+              <div class="m-step-b" style="border-top-color:#7c3aed"><div class="m-step-n" style="color:#7c3aed">STEP 04</div><div class="m-step-t">AIがアドバイスを作成</div><div class="m-step-d">今週やることを2行で自動生成</div></div>
             </div>
             <div class="m-step">
               <div class="m-step-l"><div class="m-step-ic" style="background:linear-gradient(135deg,#3b82f6,#60a5fa);color:white">📧</div><div class="m-step-ln" style="background:linear-gradient(to bottom,#3b82f6,#f43f5e)"></div></div>
-              <div class="m-step-b" style="border-top-color:#3b82f6"><div class="m-step-n" style="color:#3b82f6">STEP 05</div><div class="m-step-t">HTML メール送信</div><div class="m-step-d">GmailApp で自動送信 / 件名にアラート数</div></div>
+              <div class="m-step-b" style="border-top-color:#3b82f6"><div class="m-step-n" style="color:#3b82f6">STEP 05</div><div class="m-step-t">メールを自動送信</div><div class="m-step-d">見やすく整形してGmailで自動送信</div></div>
             </div>
             <div class="m-step">
               <div class="m-step-l"><div class="m-step-ic" style="background:linear-gradient(135deg,#f43f5e,#fb7185);color:white">📈</div><div class="m-step-ln" style="background:none"></div></div>
-              <div class="m-step-b" style="border-top-color:#f43f5e"><div class="m-step-n" style="color:#f43f5e">STEP 06</div><div class="m-step-t">ステージパイプライン管理</div><div class="m-step-d">紹介→HM契約→土地→ローン→決裁</div></div>
+              <div class="m-step-b" style="border-top-color:#f43f5e"><div class="m-step-n" style="color:#f43f5e">STEP 06</div><div class="m-step-t">商談の進み具合を管理</div><div class="m-step-d">紹介→住宅会社契約→土地→ローン→決裁</div></div>
             </div>
           </div>
         </div>
@@ -203,17 +202,17 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue','Hiragino San
   <div class="parts-box" style="margin-bottom:32px">
     <div style="font-size:15px;font-weight:800;color:#111">📧 メール画面の構成（上から下の順）</div>
     <div class="mail-flow">
-      <div class="mf-item" style="background:#eef2ff;color:#4338ca">① ヘッダー<br><span style="font-size:10px;font-weight:400;color:#6b7280">グラデーション・日付・曜日</span></div>
+      <div class="mf-item" style="background:#eef2ff;color:#4338ca">① ヘッダー<br><span style="font-size:10px;font-weight:400;color:#6b7280">カラフルなタイトル・日付・曜日</span></div>
       <div style="display:flex;align-items:center;color:#9ca3af;font-size:16px">→</div>
-      <div class="mf-item" style="background:#fff0f0;color:#dc2626">② 統計カード4枚<br><span style="font-size:10px;font-weight:400;color:#6b7280">総数・未フォロー・フォロー中・ローン警告</span></div>
+      <div class="mf-item" style="background:#fff0f0;color:#dc2626">② 数字カード4枚<br><span style="font-size:10px;font-weight:400;color:#6b7280">総数・未フォロー・対応中・ローン警告</span></div>
       <div style="display:flex;align-items:center;color:#9ca3af;font-size:16px">→</div>
-      <div class="mf-item" style="background:#f5f3ff;color:#7c3aed">③ AIアドバイス<br><span style="font-size:10px;font-weight:400;color:#6b7280">Claudeが生成する2行まとめ</span></div>
+      <div class="mf-item" style="background:#f5f3ff;color:#7c3aed">③ AIアドバイス<br><span style="font-size:10px;font-weight:400;color:#6b7280">AIが作る2行のまとめ</span></div>
       <div style="display:flex;align-items:center;color:#9ca3af;font-size:16px">→</div>
-      <div class="mf-item" style="background:#fff1f2;color:#e11d48">④ ローンアラート<br><span style="font-size:10px;font-weight:400;color:#6b7280">期日14日以内を最優先表示</span></div>
+      <div class="mf-item" style="background:#fff1f2;color:#e11d48">④ ローンアラート<br><span style="font-size:10px;font-weight:400;color:#6b7280">期日14日以内を最優先で赤く表示</span></div>
       <div style="display:flex;align-items:center;color:#9ca3af;font-size:16px">→</div>
-      <div class="mf-item" style="background:#fffbeb;color:#d97706">⑤ 要フォロー顧客リスト<br><span style="font-size:10px;font-weight:400;color:#6b7280">未連絡日数・課題タグ付き</span></div>
+      <div class="mf-item" style="background:#fffbeb;color:#d97706">⑤ 連絡が必要なお客様リスト<br><span style="font-size:10px;font-weight:400;color:#6b7280">未連絡日数・状況タグ付き</span></div>
       <div style="display:flex;align-items:center;color:#9ca3af;font-size:16px">→</div>
-      <div class="mf-item" style="background:#f0fdf4;color:#16a34a">⑥ ステージ別進捗バー<br><span style="font-size:10px;font-weight:400;color:#6b7280">5段階パイプラインを可視化</span></div>
+      <div class="mf-item" style="background:#f0fdf4;color:#16a34a">⑥ 商談の進み具合グラフ<br><span style="font-size:10px;font-weight:400;color:#6b7280">5段階の進捗を棒グラフで表示</span></div>
     </div>
   </div>
 </div>
@@ -225,57 +224,57 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue','Hiragino San
   <div class="parts-box">
     <div style="font-size:12px;font-weight:800;letter-spacing:1px;color:#6366f1;text-transform:uppercase;margin-bottom:6px">Innovation 01</div>
     <div style="font-size:19px;font-weight:800;color:#111;margin-bottom:10px">メール画面「4つのパーツ」の決め方</div>
-    <div style="font-size:13px;color:#555;line-height:1.9;margin-bottom:14px">毎朝スマートフォンで確認することを想定し、<strong>「開いて5秒で判断できる」</strong>を目標に設計。情報の優先度に合わせて4つの区画を決めています。</div>
+    <div style="font-size:13px;color:#555;line-height:1.9;margin-bottom:14px">毎朝スマートフォンで確認することを想定し、<strong>「開いて5秒で判断できる」</strong>を目標に設計しました。大切な情報ほど上に来るように順番を決めています。</div>
     <div class="parts-grid">
       <div class="parts-item" style="background:#eef2ff">
-        <div style="font-size:12px;font-weight:700;color:#4338ca;margin-bottom:4px">📊 統計カード（一番上）</div>
-        <div style="font-size:12px;color:#555;line-height:1.7">数字だけで全体像を把握。4枚にすることでスマホ画面に収まりつつ必要な情報をすべて表示</div>
+        <div style="font-size:12px;font-weight:700;color:#4338ca;margin-bottom:4px">📊 数字カード（一番上）</div>
+        <div style="font-size:12px;color:#555;line-height:1.7">数字だけで全体の状況をひと目で確認。4枚にすることでスマホ画面に収まりながらも必要な情報を全部表示できます</div>
       </div>
       <div class="parts-item" style="background:#fff1f2">
         <div style="font-size:12px;font-weight:700;color:#dc2626;margin-bottom:4px">🚨 ローンアラート（最優先）</div>
-        <div style="font-size:12px;color:#555;line-height:1.7">ローン特約期日は見落とし厳禁のため最優先で配置。赤い枠で視覚的に目立たせる</div>
+        <div style="font-size:12px;color:#555;line-height:1.7">ローン特約の期日は見落としが絶対に許されないため、最も目立つ位置に赤い枠で表示しています</div>
       </div>
       <div class="parts-item" style="background:#f5f3ff">
         <div style="font-size:12px;font-weight:700;color:#7c3aed;margin-bottom:4px">✨ AIアドバイス（簡潔に）</div>
-        <div style="font-size:12px;color:#555;line-height:1.7">長文は読まれない。「今週やること」を2行で提示し出社直後にすぐ行動できる設計</div>
+        <div style="font-size:12px;color:#555;line-height:1.7">長い文章は朝の忙しい時間に読まれません。「今週やること」だけを2行に絞り、すぐ行動できる内容にしています</div>
       </div>
       <div class="parts-item" style="background:#f0fdf4">
-        <div style="font-size:12px;font-weight:700;color:#16a34a;margin-bottom:4px">📈 進捗バー（全体把握）</div>
-        <div style="font-size:12px;color:#555;line-height:1.7">5段階パイプラインを棒グラフで可視化。顧客全体の分布を一覧で確認できる</div>
+        <div style="font-size:12px;font-weight:700;color:#16a34a;margin-bottom:4px">📈 進み具合グラフ（全体把握）</div>
+        <div style="font-size:12px;color:#555;line-height:1.7">お客様が今どの段階にいるかを棒グラフで表示。全体の流れを一目で確認できます</div>
       </div>
     </div>
   </div>
 
-  <div style="font-size:16px;font-weight:800;color:#111;margin-bottom:13px">🛠 実装上の工夫（全6点）</div>
+  <div style="font-size:16px;font-weight:800;color:#111;margin-bottom:13px">🛠 こだわりの工夫（全6点）</div>
   <div class="inno-grid">
-    <div class="inno-card ic1"><div class="inno-icon" style="background:#eef2ff">🎨</div><div class="inno-num" style="color:#6366f1">Design 01</div><div class="inno-title">tableレイアウトで<br>メールクライアント対応</div><div class="inno-body">GmailはCSS Grid・Flexboxを正常に解釈しない場合があります。そのため統計カードや顧客リストを&lt;table&gt;タグで構築し、どのメールアプリでも崩れないレイアウトを実現しました。</div></div>
-    <div class="inno-card ic2"><div class="inno-icon" style="background:#fff1f2">🔍</div><div class="inno-num" style="color:#f43f5e">Design 02</div><div class="inno-title">背景色を読み取り<br>打ち切り客を自動除外</div><div class="inno-body">既存の運用で「終了した顧客行を濃い灰色に塗る」慣習を活用。RGB値を解析してグレー系かつ明るさが一定以下の場合に除外。スプレッドシートの運用方法を一切変えずに実現しました。</div></div>
-    <div class="inno-card ic3"><div class="inno-icon" style="background:#f5f3ff">🤖</div><div class="inno-num" style="color:#7c3aed">Design 03</div><div class="inno-title">AIサマリーの<br>「短さ」の強制設計</div><div class="inno-body">プロンプトに「箇条書き2行のみ・1行30文字以内・余計な前置き不要」と明記し、さらにmax_tokens:120で物理的に長文を不可能に。二重の制約でスマホ1画面に収まる短文を実現。</div></div>
-    <div class="inno-card ic4"><div class="inno-icon" style="background:#d1fae5">🏦</div><div class="inno-num" style="color:#10b981">Design 04</div><div class="inno-title">ローン期日アラートの<br>精密な3条件判定</div><div class="inno-body">①期日まで14日以内、②本申込チェックなし、③期日超過＋申込済みは完了として全除外という3条件を組み合わせ、本当に動く必要がある場合のみアラートを表示します。</div></div>
-    <div class="inno-card ic5"><div class="inno-icon" style="background:#fffbeb">✍️</div><div class="inno-num" style="color:#f59e0b">Design 05</div><div class="inno-title">名前の自動クリーニング<br>（全角スペース・改行対応）</div><div class="inno-body">cleanName()関数で全角スペースを半角に変換・改行をスペースに置換・連続スペースを1つにまとめる処理を自動化。名前の崩れゼロを実現しました。</div></div>
-    <div class="inno-card ic6"><div class="inno-icon" style="background:#eff6ff">📋</div><div class="inno-num" style="color:#3b82f6">Design 06</div><div class="inno-title">既存スプレッドシートを<br>そのまま活用する設計</div><div class="inno-body">現場に新しい入力ルールや列の追加を一切強要しません。列の並び・チェックボックスの使い方・灰色塗りの管理方法すべてそのまま。システム側が合わせることで導入コストゼロを実現。</div></div>
+    <div class="inno-card ic1"><div class="inno-icon" style="background:#eef2ff">🎨</div><div class="inno-num" style="color:#6366f1">工夫 01</div><div class="inno-title">どのメールアプリでも<br>崩れないレイアウト</div><div class="inno-body">Gmailなどのメールアプリは、ウェブサイトで使われる最新のレイアウト方法に対応していない場合があります。そのため、昔から使われている「表組み形式」で画面を作り、どのアプリでも正しく表示されるようにしました。</div></div>
+    <div class="inno-card ic2"><div class="inno-icon" style="background:#fff1f2">🔍</div><div class="inno-num" style="color:#f43f5e">工夫 02</div><div class="inno-title">灰色に塗るだけで<br>終了した顧客を自動除外</div><div class="inno-body">もともと「対応終了したお客様の行を濃い灰色に塗る」という運用をされていました。その色の情報をシステムが読み取り、灰色の行を自動的に除外します。スプレッドシートの使い方を一切変えずに実現しました。</div></div>
+    <div class="inno-card ic3"><div class="inno-icon" style="background:#f5f3ff">🤖</div><div class="inno-num" style="color:#7c3aed">工夫 03</div><div class="inno-title">AIへの指示で<br>短い返答を強制</div><div class="inno-body">AIに普通に依頼すると長い文章が返ってきます。そこでAIへの指示文に「箇条書き2行のみ・1行は30文字以内・余計な前置きは不要」と明記し、さらに返答できる文字数を上限120文字に制限しました。二重の制限でスマホ1画面に収まるコンパクトな内容を実現しています。</div></div>
+    <div class="inno-card ic4"><div class="inno-icon" style="background:#d1fae5">🏦</div><div class="inno-num" style="color:#10b981">工夫 04</div><div class="inno-title">本当に必要なときだけ<br>ローンアラートを表示</div><div class="inno-body">①期日まで14日以内、②ローン本申込のチェックがない、③期日が過ぎていて申込済みの場合は手続き完了として完全除外、という3つの条件を組み合わせました。実際に動く必要があるお客様だけにアラートが表示されます。</div></div>
+    <div class="inno-card ic5"><div class="inno-icon" style="background:#fffbeb">✍️</div><div class="inno-num" style="color:#f59e0b">工夫 05</div><div class="inno-title">名前の崩れを<br>自動で修正</div><div class="inno-body">スプレッドシートのセルには全角スペースやセル内の改行が入っている場合があります。それを自動で検知して整えることで、お客様の名前が正しく表示されるようにしました。</div></div>
+    <div class="inno-card ic6"><div class="inno-icon" style="background:#eff6ff">📋</div><div class="inno-num" style="color:#3b82f6">工夫 06</div><div class="inno-title">今のスプレッドシートを<br>そのまま使える設計</div><div class="inno-body">現場のスタッフに新しい入力ルールや列の追加を一切お願いしていません。列の並び・チェックボックスの使い方・灰色塗りの管理方法、すべてそのまま。システム側が合わせることで、導入してすぐ使える仕組みにしました。</div></div>
   </div>
 
   <div style="font-size:16px;font-weight:800;color:#111;margin-bottom:13px;margin-top:8px">🧩 ぶつかった課題と解決方法</div>
   <div class="ch-list">
-    <div class="ch-card cl1"><div class="ch-left"></div><div class="ch-inner"><div class="ch-label">課題 01 — メール表示崩れ</div><div class="ch-title">モダンCSSがGmailで効かなかった</div><div class="ch-body">display:gridとdisplay:flexでカードを並べていましたが、GmailアプリではこれらのCSSが正しく解釈されずレイアウトが崩れてしまいました。</div><div class="sol-box"><div class="sol-label">✅ 解決方法</div><div class="sol-body">全レイアウトを&lt;table&gt;タグに書き直し。見た目はモダンデザインを保ちながら構造はtableベースに統一。以降は全デバイスで安定表示を確認しています。</div></div></div></div>
-    <div class="ch-card cl2"><div class="ch-left"></div><div class="ch-inner"><div class="ch-label">課題 02 — AI文章が長すぎた</div><div class="ch-title">Claude APIが長文サマリーを返し続けた</div><div class="ch-body">「今週のサマリーを生成して」と指示したところ段落ありの長文が返り、スマートフォンで3スクロール分の量になり実用性が著しく低下しました。</div><div class="sol-box"><div class="sol-label">✅ 解決方法</div><div class="sol-body">プロンプトに「箇条書き2行のみ・1行30文字以内・余計な説明不要」と明記し、加えてmax_tokens:120に制限。どのような状況でも必ず短文で返る設計に変更しました。</div></div></div></div>
-    <div class="ch-card cl3"><div class="ch-left"></div><div class="ch-inner"><div class="ch-label">課題 03 — 誤ったアラート通知</div><div class="ch-title">本申込済みなのにローンアラートが出た</div><div class="ch-body">ローン特約期日の超過を検知する機能を実装したところ、すでにローン本申込が完了した顧客にも「期日超過！」のアラートが表示されてしまいました。</div><div class="sol-box"><div class="sol-label">✅ 解決方法</div><div class="sol-body">①本申込済みであればアラートを非表示、②期日超過かつ本申込済みであれば「手続き完了」とみなしてフォローリストから完全除外、という二段階の判定ロジックを追加しました。</div></div></div></div>
-    <div class="ch-card cl4"><div class="ch-left"></div><div class="ch-inner"><div class="ch-label">課題 04 — GAS構文エラー</div><div class="ch-title">コード貼り付け時にSyntaxErrorが発生</div><div class="ch-body">GASエディタへの貼り付け時に「SyntaxError: Unexpected end of input 行:479」というエラーが発生。コードが途中で切れた状態でエディタに入った状態でした。</div><div class="sol-box"><div class="sol-label">✅ 解決方法</div><div class="sol-body">コードファイル全体を最初から最後まで一括コピーし直し、GASエディタの既存コードを全削除してから貼り付ける手順を徹底。Cmd+S保存→関数実行の順序を守ることで解消しました。</div></div></div></div>
+    <div class="ch-card cl1"><div class="ch-left"></div><div class="ch-inner"><div class="ch-label">課題 01 — メール表示の崩れ</div><div class="ch-title">スマホで見るとレイアウトが崩れてしまった</div><div class="ch-body">ウェブサイトと同じ方法でカードを並べていましたが、GmailアプリではこのレイアウトがうまくAが、実際のGmailでは正しく表示されず、縦並びになってしまいました。</div><div class="sol-box"><div class="sol-label">✅ 解決方法</div><div class="sol-body">昔から使われている「表組み形式」で画面全体を作り直しました。見た目はきれいなデザインを保ちながら、どのメールアプリでも安定して表示される構造に変更しています。</div></div></div></div>
+    <div class="ch-card cl2"><div class="ch-left"></div><div class="ch-inner"><div class="ch-label">課題 02 — AI文章が長すぎた</div><div class="ch-title">AIが長い文章を返し続けてしまった</div><div class="ch-body">「今週のまとめを作って」とAIに依頼したところ、段落のある長い文章が返ってきました。スマートフォンで3回スクロールしないと読めない量になり、実用的ではありませんでした。</div><div class="sol-box"><div class="sol-label">✅ 解決方法</div><div class="sol-body">AIへの指示文に「箇条書き2行のみ・1行は30文字以内・余計な説明は不要」と明記し、さらに返答できる文字数の上限を設けました。どんな状況でも必ずコンパクトな返答が来るようになりました。</div></div></div></div>
+    <div class="ch-card cl3"><div class="ch-left"></div><div class="ch-inner"><div class="ch-label">課題 03 — 間違ったアラート通知</div><div class="ch-title">申込済みなのにローンアラートが出続けた</div><div class="ch-body">ローン特約期日を確認する機能を作ったところ、すでにローン本申込を済ませたお客様にも「期日が迫っています！」というアラートが表示されてしまいました。</div><div class="sol-box"><div class="sol-label">✅ 解決方法</div><div class="sol-body">①本申込済みであればアラートを表示しない、②期日が過ぎていて申込済みであれば「手続き完了」とみなしてリストから完全に除外、という2段階の判定を追加しました。</div></div></div></div>
+    <div class="ch-card cl4"><div class="ch-left"></div><div class="ch-inner"><div class="ch-label">課題 04 — コードの貼り付けエラー</div><div class="ch-title">スクリプトを貼り付けたらエラーが出た</div><div class="ch-body">スクリプトエディタにプログラムを貼り付けて実行しようとしたところ「行479でエラーが発生しました」と表示されました。コードが途中で切れた状態で貼り付けられていたことが原因でした。</div><div class="sol-box"><div class="sol-label">✅ 解決方法</div><div class="sol-body">プログラムファイル全体を最初から最後まで一括でコピーし直し、スクリプトエディタの中身をすべて削除してから貼り付ける手順を徹底しました。保存してから実行する順序を守ることで解消しました。</div></div></div></div>
   </div>
 
   <div class="result-box">
-    <div class="result-title">🎯 システム導入による効果（3つのゼロ）</div>
-    <div class="result-item"><div class="r-badge">①</div><div><strong>見落としゼロ</strong> — ローン期日や長期未フォローを自動検知し、毎週木曜9:00に確実に通知。優先度の高いものが画面の上に来る設計で重要事項を見逃さない。</div></div>
-    <div class="result-item"><div class="r-badge">②</div><div><strong>現場負担ゼロ</strong> — 既存のスプレッドシート運用を一切変えず、新しい入力ルール・列追加・別ツールの学習が不要。一度トリガーを設定すれば以降は完全自動。</div></div>
-    <div class="result-item"><div class="r-badge">③</div><div><strong>判断の迷いゼロ</strong> — AIが「今週やること」を2行で提示。出社直後にメールを確認するだけで、その日の最優先アクションが即座に分かる。</div></div>
+    <div class="result-title">🎯 このシステムで実現した効果（3つのゼロ）</div>
+    <div class="result-item"><div class="r-badge">①</div><div><strong>見落としゼロ</strong> — ローン期日や長期間フォローしていないお客様を自動で検知し、毎週木曜9:00に確実に通知。大事なことが画面の上に来る設計で重要な情報を見逃しません。</div></div>
+    <div class="result-item"><div class="r-badge">②</div><div><strong>現場負担ゼロ</strong> — 今のスプレッドシートの使い方を一切変えず、新しい入力のルールや別ツールの学習が不要。一度設定すれば以降は完全に自動で動き続けます。</div></div>
+    <div class="result-item"><div class="r-badge">③</div><div><strong>判断の迷いゼロ</strong> — AIが「今週やること」を2行でまとめて届けます。出社してメールを開くだけで、その日に最優先でやることがすぐに分かります。</div></div>
   </div>
 </div>
 
 <div style="max-width:960px;margin:0 auto;padding:0 32px;margin-top:32px">
   <div style="background:#1e1b4b;border-radius:18px;padding:28px;color:white;text-align:center">
     <div style="font-size:18px;font-weight:800;margin-bottom:8px">🏠 土地なし管理客 週次レポートシステム</div>
-    <div style="font-size:13px;opacity:.7;line-height:1.9">Google Apps Script + Claude AI (claude-opus-4-5) による自動化システム<br>毎週木曜日 朝9:00 に自動実行 → Gmail でレポート送信</div>
+    <div style="font-size:13px;opacity:.7;line-height:1.9">スプレッドシートのデータ＋AI分析による自動レポートシステム<br>毎週木曜日 朝9:00 に自動でスタート → Gmailでレポートを送信</div>
   </div>
 </div>
 </body>
