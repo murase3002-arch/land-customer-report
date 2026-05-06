@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>土地なし管理客 週次レポートシステム</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Hiragino Sans', Arial, sans-serif;
+  background: #f5f7ff; color: #1a1a2e;
+  min-height: 100vh; padding: 0 0 60px;
+}
+.hero {
+  background: linear-gradient(135deg, #1e1b4b 0%, #4338ca 100%);
+  color: white; padding: 56px 32px 48px; text-align: center;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute;
+  top: -80px; right: -60px;
+  width: 300px; height: 300px;
+  background: rgba(255,255,255,0.06); border-radius: 50%;
+}
+.hero-label { font-size: 11px; font-weight: 700; letter-spacing: 3px; opacity: 0.6; margin-bottom: 14px; }
+.hero-title { font-size: 34px; font-weight: 900; line-height: 1.25; margin-bottom: 12px; }
+.hero-sub { font-size: 15px; opacity: 0.75; line-height: 1.7; margin-bottom: 28px; }
+.hero-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.hero-tag {
+  background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25);
+  padding: 5px 14px; border-radius: 20px; font-size: 12px; font-weight: 600;
+}
+
+.wrap { max-width: 760px; margin: 0 auto; padding: 40px 24px 0; }
+.section-title { font-size: 22px; font-weight: 800; color: #111; margin-bottom: 18px; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 40px; }
+.card {
+  background: white; border-radius: 18px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  border: 1px solid rgba(0,0,0,0.05);
+  overflow: hidden; text-decoration: none; color: inherit;
+  transition: transform 0.15s, box-shadow 0.15s;
+  display: block;
+}
+.card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,0.12); }
+.card-top { padding: 24px 22px 20px; }
+.card-icon { font-size: 32px; margin-bottom: 12px; }
+.card-label { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+.card-title { font-size: 18px; font-weight: 800; color: #111; margin-bottom: 8px; }
+.card-desc { font-size: 13px; color: #6b7280; line-height: 1.7; }
+.card-footer {
+  padding: 12px 22px; border-top: 1px solid #f3f4f6;
+  font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 6px;
+}
+.c1 .card-label { color: #6366f1; } .c1 .card-footer { color: #6366f1; background: #f8f9ff; }
+.c2 .card-label { color: #7c3aed; } .c2 .card-footer { color: #7c3aed; background: #faf8ff; }
+.c3 .card-label { color: #10b981; } .c3 .card-footer { color: #10b981; background: #f7fffe; }
+.c4 .card-label { color: #f43f5e; } .c4 .card-footer { color: #f43f5e; background: #fff8f9; }
+
+.info-box {
+  background: white; border-radius: 16px; padding: 20px 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.04);
+  margin-bottom: 20px; font-size: 14px; color: #555; line-height: 1.9;
+}
+.info-box strong { color: #111; font-weight: 700; }
+
+@media (max-width: 600px) {
+  .grid { grid-template-columns: 1fr; }
+  .hero-title { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-label">公開資料</div>
+  <div class="hero-title">🏠 土地なし管理客<br>週次レポートシステム</div>
+  <div class="hero-sub">
+    Google Apps Script × Claude AI による<br>不動産顧客フォロー管理の完全自動化
+  </div>
+  <div class="hero-tags">
+    <span class="hero-tag">🗓 毎週木曜 9:00 自動実行</span>
+    <span class="hero-tag">✨ Claude AI サマリー搭載</span>
+    <span class="hero-tag">📧 Gmail 自動送信</span>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="section-title">📄 公開資料一覧</div>
+
+  <div class="grid">
+    <a href="submission-report.html" class="card c1">
+      <div class="card-top">
+        <div class="card-icon">📋</div>
+        <div class="card-label">提出用まとめ</div>
+        <div class="card-title">システム概要・工夫ポイント・課題と解決</div>
+        <div class="card-desc">報告ツールの画面（スクリーンショット）＋ 4パーツの決め方・デザインの工夫・ぶつかった課題と解決方法</div>
+      </div>
+      <div class="card-footer">📋 提出用まとめを見る →</div>
+    </a>
+
+    <a href="presentation-final.html" class="card c2">
+      <div class="card-top">
+        <div class="card-icon">🎤</div>
+        <div class="card-label">10分発表原稿</div>
+        <div class="card-title">発表原稿（全6パート）</div>
+        <div class="card-desc">はじめに・システム概要・完成画面・工夫ポイント・課題と解決・まとめ＋想定Q&A</div>
+      </div>
+      <div class="card-footer">🎤 発表原稿を見る →</div>
+    </a>
+
+    <a href="system-diagram.html" class="card c3">
+      <div class="card-top">
+        <div class="card-icon">🗺</div>
+        <div class="card-label">システム図解</div>
+        <div class="card-title">処理フロー 全6ステップ</div>
+        <div class="card-desc">自動トリガー→スプレッドシート読み込み→フィルタリング→AI→メール→ステージ管理</div>
+      </div>
+      <div class="card-footer">🗺 システム図解を見る →</div>
+    </a>
+
+    <a href="gmail-preview.html" class="card c4">
+      <div class="card-top">
+        <div class="card-icon">📱</div>
+        <div class="card-label">Gmail プレビュー</div>
+        <div class="card-title">実際に届くメール画面</div>
+        <div class="card-desc">スマートフォン表示のモック。統計カード・AIアドバイス・ローンアラート・顧客リスト</div>
+      </div>
+      <div class="card-footer">📱 Gmail画面を見る →</div>
+    </a>
+  </div>
+
+  <div class="info-box">
+    <strong>システム概要</strong><br>
+    毎週木曜日の朝9時に Google Apps Script が自動起動し、スプレッドシートの顧客データを読み込んで分析。
+    Claude AI（claude-opus-4-5）が今週のアクションを2行で要約し、HTMLメールをGmailで自動送信するシステムです。
+    打ち切り客の自動除外・ローン特約期日アラート・未フォロー顧客の自動抽出など、営業現場の実務に特化した機能を搭載しています。
+  </div>
+</div>
+
+</body>
+</html>

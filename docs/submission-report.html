@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>提出用レポート — 土地なし管理客 週次レポートシステム</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue','Hiragino Sans',Arial,sans-serif;background:#f5f7ff;color:#1a1a2e;padding:0 0 80px}
+.back{text-align:center;padding:16px}
+.back a{color:#6366f1;font-size:13px;font-weight:600;text-decoration:none}
+.cover{background:linear-gradient(135deg,#1e1b4b 0%,#4338ca 100%);color:white;padding:52px 40px 44px;position:relative;overflow:hidden}
+.cover::after{content:'';position:absolute;top:-60px;right:-60px;width:280px;height:280px;background:rgba(255,255,255,.06);border-radius:50%}
+.cover-eyebrow{font-size:11px;font-weight:700;letter-spacing:3px;opacity:.6;margin-bottom:14px}
+.cover-title{font-size:32px;font-weight:900;line-height:1.3;margin-bottom:10px}
+.cover-sub{font-size:14px;opacity:.7;margin-bottom:28px;line-height:1.7}
+.cover-tags{display:flex;flex-wrap:wrap;gap:8px}
+.cover-tag{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600}
+.sh{padding:40px 32px 16px;max-width:960px;margin:0 auto}
+.sn{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#6366f1;margin-bottom:6px}
+.st{font-size:24px;font-weight:800;color:#111}
+.sd{height:3px;width:60px;background:linear-gradient(90deg,#6366f1,#a78bfa);border-radius:2px;margin-top:8px}
+.content{max-width:960px;margin:0 auto;padding:0 32px}
+
+/* Screenshots */
+.ss-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:28px}
+.ss-card{background:white;border-radius:18px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08);border:1px solid rgba(0,0,0,.05)}
+.ss-label{padding:12px 16px;background:#f8f9ff;border-bottom:1px solid #e5e7eb;font-size:13px;font-weight:700;color:#374151;display:flex;align-items:center;gap:8px}
+.ss-label .badge{background:#6366f1;color:white;font-size:10px;padding:2px 8px;border-radius:20px}
+.ss-body{padding:16px;background:#f0f2f5;min-height:260px;display:flex;align-items:center;justify-content:center}
+
+/* Mini phone */
+.m-phone{width:200px;background:white;border-radius:26px;box-shadow:0 16px 48px rgba(0,0,0,.22);overflow:hidden;border:6px solid #1a1a1a}
+.m-sb{background:white;padding:7px 14px 3px;display:flex;justify-content:space-between;font-size:9px;font-weight:600}
+.m-gh{background:white;padding:6px 10px 5px;border-bottom:1px solid #e8eaed}
+.m-from{font-size:9px;font-weight:700;color:#202124}
+.m-subj{font-size:7px;color:#5f6368}
+.m-body{background:#f0f2f5;padding:7px}
+.m-hdr{background:linear-gradient(135deg,#667eea,#764ba2);color:white;padding:9px;border-radius:7px;margin-bottom:5px}
+.m-hdr-l{font-size:6px;opacity:.75;letter-spacing:1px}
+.m-hdr-t{font-size:10px;font-weight:bold}
+.m-hdr-d{font-size:6px;opacity:.85}
+.m-stats{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:5px}
+.m-stat{background:white;border-radius:7px;padding:6px;text-align:center}
+.m-num{font-size:16px;font-weight:bold}
+.m-lbl{font-size:5px;color:#888}
+.m-ai{background:#f5f3ff;border-radius:7px;padding:6px 7px;margin-bottom:5px;border-left:2px solid #7c3aed}
+.m-ai-l{font-size:6px;font-weight:bold;color:#7c3aed;margin-bottom:2px}
+.m-ai-t{font-size:6px;color:#333;line-height:1.6}
+.m-loan{background:#fff0f0;border-radius:7px;padding:7px;border:1.5px solid #ff6b6b}
+.m-loan-t{background:#ff6b6b;color:white;border-radius:4px;padding:1px 5px;font-size:6px;font-weight:bold;display:inline-block;margin-bottom:4px}
+.m-cc{border-left:2px solid #ff6b6b;background:#fff5f5;border-radius:0 4px 4px 0;padding:4px 5px}
+.m-cc-r{display:flex;justify-content:space-between;align-items:center}
+.m-cc-n{font-size:8px;font-weight:bold}
+.m-cc-b{background:#ff6b6b;color:white;font-size:5px;padding:1px 4px;border-radius:6px}
+.m-cc-d{font-size:5px;color:#999;margin:1px 0}
+
+/* Mini diagram */
+.m-diag{width:100%;max-width:360px;background:#f8f9ff;border-radius:14px;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,.1)}
+.m-diag-ttl{text-align:center;padding:12px;background:white;border-bottom:1px solid #e5e7eb}
+.m-diag-ttl h3{font-size:12px;font-weight:800;color:#1a1a2e}
+.m-diag-ttl p{font-size:8px;color:#6b7280}
+.m-step{display:flex;gap:0;align-items:stretch;padding:0 8px 0 6px}
+.m-step-l{display:flex;flex-direction:column;align-items:center;width:28px;flex-shrink:0}
+.m-step-ic{width:24px;height:24px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;z-index:1;box-shadow:0 2px 6px rgba(0,0,0,.1)}
+.m-step-ln{width:2px;flex:1;min-height:6px;margin:0 auto}
+.m-step-b{flex:1;background:white;border-radius:8px;padding:7px 9px;margin:0 0 5px 7px;box-shadow:0 1px 5px rgba(0,0,0,.05);border:1px solid rgba(0,0,0,.04);position:relative;overflow:hidden}
+.m-step-b::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;border-radius:8px 8px 0 0}
+.m-step-n{font-size:6px;font-weight:800;letter-spacing:.5px}
+.m-step-t{font-size:9px;font-weight:800;color:#111}
+.m-step-d{font-size:6px;color:#666;line-height:1.5}
+.m-tag{display:inline-block;font-size:5px;padding:1px 4px;border-radius:6px;font-weight:600;margin:1px 1px 0 0}
+
+/* Innovation */
+.inno-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+.inno-card{background:white;border-radius:16px;padding:22px;box-shadow:0 2px 14px rgba(0,0,0,.06);border:1px solid rgba(0,0,0,.04);position:relative;overflow:hidden}
+.inno-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;border-radius:16px 16px 0 0}
+.ic1::before{background:linear-gradient(90deg,#6366f1,#818cf8)}
+.ic2::before{background:linear-gradient(90deg,#f43f5e,#fb7185)}
+.ic3::before{background:linear-gradient(90deg,#7c3aed,#a855f7)}
+.ic4::before{background:linear-gradient(90deg,#10b981,#34d399)}
+.ic5::before{background:linear-gradient(90deg,#f59e0b,#fbbf24)}
+.ic6::before{background:linear-gradient(90deg,#3b82f6,#60a5fa)}
+.inno-icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:12px}
+.inno-num{font-size:10px;font-weight:800;letter-spacing:1px;margin-bottom:4px}
+.inno-title{font-size:15px;font-weight:800;color:#111;margin-bottom:10px}
+.inno-body{font-size:13px;color:#555;line-height:1.8}
+
+/* Challenge */
+.ch-list{display:flex;flex-direction:column;gap:14px;margin-bottom:24px}
+.ch-card{background:white;border-radius:14px;box-shadow:0 2px 12px rgba(0,0,0,.06);overflow:hidden;display:flex}
+.ch-left{width:6px;flex-shrink:0}
+.cl1 .ch-left{background:#f43f5e} .cl2 .ch-left{background:#f59e0b} .cl3 .ch-left{background:#3b82f6} .cl4 .ch-left{background:#7c3aed}
+.ch-inner{padding:18px 20px;flex:1}
+.ch-label{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px}
+.cl1 .ch-label{background:#fff1f2;color:#e11d48} .cl2 .ch-label{background:#fffbeb;color:#d97706}
+.cl3 .ch-label{background:#eff6ff;color:#2563eb} .cl4 .ch-label{background:#f5f3ff;color:#7c3aed}
+.ch-title{font-size:15px;font-weight:800;color:#111;margin-bottom:7px}
+.ch-body{font-size:13px;color:#555;line-height:1.8}
+.sol-box{background:#f0fdf4;border:1.5px solid #bbf7d0;border-radius:10px;padding:12px 14px;margin-top:10px}
+.sol-label{font-size:11px;font-weight:700;color:#16a34a;margin-bottom:5px}
+.sol-body{font-size:13px;color:#374151;line-height:1.7}
+
+/* Result */
+.result-box{background:linear-gradient(135deg,#f5f3ff,#eef2ff);border:2px solid #ddd6fe;border-radius:18px;padding:24px 28px;margin-bottom:24px}
+.result-title{font-size:17px;font-weight:800;color:#4c1d95;margin-bottom:16px}
+.result-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#374151;line-height:1.7;margin-bottom:10px}
+.result-item:last-child{margin-bottom:0}
+.r-badge{width:26px;height:26px;border-radius:7px;background:#7c3aed;color:white;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;margin-top:2px}
+
+/* Parts box */
+.parts-box{background:white;border-radius:16px;padding:22px 26px;margin-bottom:20px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.parts-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.parts-item{border-radius:10px;padding:12px 14px}
+
+/* Mail structure */
+.mail-flow{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.mf-item{border-radius:10px;padding:8px 13px;font-size:12px;font-weight:600}
+
+@media(max-width:650px){.ss-grid,.inno-grid,.parts-grid{grid-template-columns:1fr}.cover{padding:36px 22px 30px}.cover-title{font-size:24px}.sh,.content{padding-left:20px;padding-right:20px}}
+</style>
+</head>
+<body>
+<div class="back"><a href="index.html">← 一覧に戻る</a></div>
+
+<div class="cover">
+  <div class="cover-eyebrow">提出用レポート</div>
+  <div class="cover-title">🏠 土地なし管理客<br>週次レポートシステム</div>
+  <div class="cover-sub">Google Apps Script × Claude AI による<br>不動産顧客フォロー管理の完全自動化</div>
+  <div class="cover-tags">
+    <span class="cover-tag">🗓 毎週木曜 9:00 自動実行</span>
+    <span class="cover-tag">📊 Google スプレッドシート連携</span>
+    <span class="cover-tag">✨ Claude AI サマリー搭載</span>
+    <span class="cover-tag">📧 Gmail 自動送信</span>
+  </div>
+</div>
+
+<!-- Section 1: Screenshots -->
+<div class="sh"><div class="sn">Section 01</div><div class="st">📱 報告ツールの画面</div><div class="sd"></div></div>
+<div class="content">
+  <div class="ss-grid">
+    <div class="ss-card">
+      <div class="ss-label">📧 Gmailに届くレポート画面 <span class="badge">スマホ表示</span></div>
+      <div class="ss-body">
+        <div class="m-phone">
+          <div class="m-sb"><span>9:03</span><span>●●●● WiFi 🔋</span></div>
+          <div class="m-gh"><div class="m-from">土地なし管理客レポートシステム</div><div class="m-subj">🚨ローン期日警告1件【レポート】5/7（未フォロー3名）</div></div>
+          <div class="m-body">
+            <div class="m-hdr"><div class="m-hdr-l">WEEKLY REPORT</div><div class="m-hdr-t">土地なし管理客レポート</div><div class="m-hdr-d">2026年5月7日（木曜日）</div></div>
+            <div class="m-stats">
+              <div class="m-stat" style="border-top:2px solid #667eea"><div class="m-num" style="color:#667eea">8</div><div class="m-lbl">総顧客数</div></div>
+              <div class="m-stat" style="border-top:2px solid #ff6b6b"><div class="m-num" style="color:#ff6b6b">3</div><div class="m-lbl">未フォロー</div></div>
+              <div class="m-stat" style="border-top:2px solid #51cf66"><div class="m-num" style="color:#51cf66">5</div><div class="m-lbl">フォロー中</div></div>
+              <div class="m-stat" style="border-top:2px solid #c92a2a"><div class="m-num" style="color:#c92a2a">1</div><div class="m-lbl">ローン期日警告</div></div>
+            </div>
+            <div class="m-ai"><div class="m-ai-l">✨ 今週のアドバイス</div><div class="m-ai-t">・田中様のローン期日まであと5日<br>・佐藤様ほか2名に今週中に連絡を</div></div>
+            <div class="m-loan">
+              <div class="m-loan-t">🚨 ローン期日が迫っています（1名）</div>
+              <div class="m-cc"><div class="m-cc-r"><div class="m-cc-n">田中 健太</div><div class="m-cc-b">あと5日</div></div><div class="m-cc-d">期日：2026/5/12　本申込：未</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ss-card">
+      <div class="ss-label">🗺 システム図解（処理フロー） <span class="badge">6ステップ</span></div>
+      <div class="ss-body">
+        <div class="m-diag">
+          <div class="m-diag-ttl"><h3>🏠 土地なし管理客 週次レポートシステム</h3><p>Google Apps Script + Claude AI による完全自動化フロー</p></div>
+          <div style="padding:8px 0">
+            <div class="m-step" style="margin-top:5px">
+              <div class="m-step-l"><div class="m-step-ic" style="background:linear-gradient(135deg,#6366f1,#818cf8);color:white">⏰</div><div class="m-step-ln" style="background:linear-gradient(to bottom,#6366f1,#10b981)"></div></div>
+              <div class="m-step-b" style="border-top-color:#6366f1"><div class="m-step-n" style="color:#6366f1">STEP 01</div><div class="m-step-t">自動トリガー起動</div><div class="m-step-d">毎週木曜日 朝9:00 に自動起動</div></div>
+            </div>
+            <div class="m-step">
+              <div class="m-step-l"><div class="m-step-ic" style="background:linear-gradient(135deg,#10b981,#34d399);color:white">📊</div><div class="m-step-ln" style="background:linear-gradient(to bottom,#10b981,#f59e0b)"></div></div>
+              <div class="m-step-b" style="border-top-color:#10b981"><div class="m-step-n" style="color:#10b981">STEP 02</div><div class="m-step-t">スプレッドシート読み込み</div><div class="m-step-d">2シート / A〜J列（10項目）一括取得</div></div>
+            </div>
+            <div class="m-step">
+              <div class="m-step-l"><div class="m-step-ic" style="background:linear-gradient(135deg,#f59e0b,#fbbf24);color:white">🔍</div><div class="m-step-ln" style="background:linear-gradient(to bottom,#f59e0b,#7c3aed)"></div></div>
+              <div class="m-step-b" style="border-top-color:#f59e0b"><div class="m-step-n" style="color:#f59e0b">STEP 03</div><div class="m-step-t">スマートフィルタリング</div><div class="m-step-d">打ち切り客除外 / ローンアラート判定</div></div>
+            </div>
+            <div class="m-step">
+              <div class="m-step-l"><div class="m-step-ic" style="background:linear-gradient(135deg,#7c3aed,#a855f7);color:white">✨</div><div class="m-step-ln" style="background:linear-gradient(to bottom,#7c3aed,#3b82f6)"></div></div>
+              <div class="m-step-b" style="border-top-color:#7c3aed"><div class="m-step-n" style="color:#7c3aed">STEP 04</div><div class="m-step-t">Claude AI サマリー生成</div><div class="m-step-d">2行・30文字以内・max_tokens:120</div></div>
+            </div>
+            <div class="m-step">
+              <div class="m-step-l"><div class="m-step-ic" style="background:linear-gradient(135deg,#3b82f6,#60a5fa);color:white">📧</div><div class="m-step-ln" style="background:linear-gradient(to bottom,#3b82f6,#f43f5e)"></div></div>
+              <div class="m-step-b" style="border-top-color:#3b82f6"><div class="m-step-n" style="color:#3b82f6">STEP 05</div><div class="m-step-t">HTML メール送信</div><div class="m-step-d">GmailApp で自動送信 / 件名にアラート数</div></div>
+            </div>
+            <div class="m-step">
+              <div class="m-step-l"><div class="m-step-ic" style="background:linear-gradient(135deg,#f43f5e,#fb7185);color:white">📈</div><div class="m-step-ln" style="background:none"></div></div>
+              <div class="m-step-b" style="border-top-color:#f43f5e"><div class="m-step-n" style="color:#f43f5e">STEP 06</div><div class="m-step-t">ステージパイプライン管理</div><div class="m-step-d">紹介→HM契約→土地→ローン→決裁</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mail structure -->
+  <div class="parts-box" style="margin-bottom:32px">
+    <div style="font-size:15px;font-weight:800;color:#111">📧 メール画面の構成（上から下の順）</div>
+    <div class="mail-flow">
+      <div class="mf-item" style="background:#eef2ff;color:#4338ca">① ヘッダー<br><span style="font-size:10px;font-weight:400;color:#6b7280">グラデーション・日付・曜日</span></div>
+      <div style="display:flex;align-items:center;color:#9ca3af;font-size:16px">→</div>
+      <div class="mf-item" style="background:#fff0f0;color:#dc2626">② 統計カード4枚<br><span style="font-size:10px;font-weight:400;color:#6b7280">総数・未フォロー・フォロー中・ローン警告</span></div>
+      <div style="display:flex;align-items:center;color:#9ca3af;font-size:16px">→</div>
+      <div class="mf-item" style="background:#f5f3ff;color:#7c3aed">③ AIアドバイス<br><span style="font-size:10px;font-weight:400;color:#6b7280">Claudeが生成する2行まとめ</span></div>
+      <div style="display:flex;align-items:center;color:#9ca3af;font-size:16px">→</div>
+      <div class="mf-item" style="background:#fff1f2;color:#e11d48">④ ローンアラート<br><span style="font-size:10px;font-weight:400;color:#6b7280">期日14日以内を最優先表示</span></div>
+      <div style="display:flex;align-items:center;color:#9ca3af;font-size:16px">→</div>
+      <div class="mf-item" style="background:#fffbeb;color:#d97706">⑤ 要フォロー顧客リスト<br><span style="font-size:10px;font-weight:400;color:#6b7280">未連絡日数・課題タグ付き</span></div>
+      <div style="display:flex;align-items:center;color:#9ca3af;font-size:16px">→</div>
+      <div class="mf-item" style="background:#f0fdf4;color:#16a34a">⑥ ステージ別進捗バー<br><span style="font-size:10px;font-weight:400;color:#6b7280">5段階パイプラインを可視化</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 2: Innovation -->
+<div class="sh"><div class="sn">Section 02</div><div class="st">⚡ 工夫したポイント</div><div class="sd"></div></div>
+<div class="content">
+
+  <div class="parts-box">
+    <div style="font-size:12px;font-weight:800;letter-spacing:1px;color:#6366f1;text-transform:uppercase;margin-bottom:6px">Innovation 01</div>
+    <div style="font-size:19px;font-weight:800;color:#111;margin-bottom:10px">メール画面「4つのパーツ」の決め方</div>
+    <div style="font-size:13px;color:#555;line-height:1.9;margin-bottom:14px">毎朝スマートフォンで確認することを想定し、<strong>「開いて5秒で判断できる」</strong>を目標に設計。情報の優先度に合わせて4つの区画を決めています。</div>
+    <div class="parts-grid">
+      <div class="parts-item" style="background:#eef2ff">
+        <div style="font-size:12px;font-weight:700;color:#4338ca;margin-bottom:4px">📊 統計カード（一番上）</div>
+        <div style="font-size:12px;color:#555;line-height:1.7">数字だけで全体像を把握。4枚にすることでスマホ画面に収まりつつ必要な情報をすべて表示</div>
+      </div>
+      <div class="parts-item" style="background:#fff1f2">
+        <div style="font-size:12px;font-weight:700;color:#dc2626;margin-bottom:4px">🚨 ローンアラート（最優先）</div>
+        <div style="font-size:12px;color:#555;line-height:1.7">ローン特約期日は見落とし厳禁のため最優先で配置。赤い枠で視覚的に目立たせる</div>
+      </div>
+      <div class="parts-item" style="background:#f5f3ff">
+        <div style="font-size:12px;font-weight:700;color:#7c3aed;margin-bottom:4px">✨ AIアドバイス（簡潔に）</div>
+        <div style="font-size:12px;color:#555;line-height:1.7">長文は読まれない。「今週やること」を2行で提示し出社直後にすぐ行動できる設計</div>
+      </div>
+      <div class="parts-item" style="background:#f0fdf4">
+        <div style="font-size:12px;font-weight:700;color:#16a34a;margin-bottom:4px">📈 進捗バー（全体把握）</div>
+        <div style="font-size:12px;color:#555;line-height:1.7">5段階パイプラインを棒グラフで可視化。顧客全体の分布を一覧で確認できる</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="font-size:16px;font-weight:800;color:#111;margin-bottom:13px">🛠 実装上の工夫（全6点）</div>
+  <div class="inno-grid">
+    <div class="inno-card ic1"><div class="inno-icon" style="background:#eef2ff">🎨</div><div class="inno-num" style="color:#6366f1">Design 01</div><div class="inno-title">tableレイアウトで<br>メールクライアント対応</div><div class="inno-body">GmailはCSS Grid・Flexboxを正常に解釈しない場合があります。そのため統計カードや顧客リストを&lt;table&gt;タグで構築し、どのメールアプリでも崩れないレイアウトを実現しました。</div></div>
+    <div class="inno-card ic2"><div class="inno-icon" style="background:#fff1f2">🔍</div><div class="inno-num" style="color:#f43f5e">Design 02</div><div class="inno-title">背景色を読み取り<br>打ち切り客を自動除外</div><div class="inno-body">既存の運用で「終了した顧客行を濃い灰色に塗る」慣習を活用。RGB値を解析してグレー系かつ明るさが一定以下の場合に除外。スプレッドシートの運用方法を一切変えずに実現しました。</div></div>
+    <div class="inno-card ic3"><div class="inno-icon" style="background:#f5f3ff">🤖</div><div class="inno-num" style="color:#7c3aed">Design 03</div><div class="inno-title">AIサマリーの<br>「短さ」の強制設計</div><div class="inno-body">プロンプトに「箇条書き2行のみ・1行30文字以内・余計な前置き不要」と明記し、さらにmax_tokens:120で物理的に長文を不可能に。二重の制約でスマホ1画面に収まる短文を実現。</div></div>
+    <div class="inno-card ic4"><div class="inno-icon" style="background:#d1fae5">🏦</div><div class="inno-num" style="color:#10b981">Design 04</div><div class="inno-title">ローン期日アラートの<br>精密な3条件判定</div><div class="inno-body">①期日まで14日以内、②本申込チェックなし、③期日超過＋申込済みは完了として全除外という3条件を組み合わせ、本当に動く必要がある場合のみアラートを表示します。</div></div>
+    <div class="inno-card ic5"><div class="inno-icon" style="background:#fffbeb">✍️</div><div class="inno-num" style="color:#f59e0b">Design 05</div><div class="inno-title">名前の自動クリーニング<br>（全角スペース・改行対応）</div><div class="inno-body">cleanName()関数で全角スペースを半角に変換・改行をスペースに置換・連続スペースを1つにまとめる処理を自動化。名前の崩れゼロを実現しました。</div></div>
+    <div class="inno-card ic6"><div class="inno-icon" style="background:#eff6ff">📋</div><div class="inno-num" style="color:#3b82f6">Design 06</div><div class="inno-title">既存スプレッドシートを<br>そのまま活用する設計</div><div class="inno-body">現場に新しい入力ルールや列の追加を一切強要しません。列の並び・チェックボックスの使い方・灰色塗りの管理方法すべてそのまま。システム側が合わせることで導入コストゼロを実現。</div></div>
+  </div>
+
+  <div style="font-size:16px;font-weight:800;color:#111;margin-bottom:13px;margin-top:8px">🧩 ぶつかった課題と解決方法</div>
+  <div class="ch-list">
+    <div class="ch-card cl1"><div class="ch-left"></div><div class="ch-inner"><div class="ch-label">課題 01 — メール表示崩れ</div><div class="ch-title">モダンCSSがGmailで効かなかった</div><div class="ch-body">display:gridとdisplay:flexでカードを並べていましたが、GmailアプリではこれらのCSSが正しく解釈されずレイアウトが崩れてしまいました。</div><div class="sol-box"><div class="sol-label">✅ 解決方法</div><div class="sol-body">全レイアウトを&lt;table&gt;タグに書き直し。見た目はモダンデザインを保ちながら構造はtableベースに統一。以降は全デバイスで安定表示を確認しています。</div></div></div></div>
+    <div class="ch-card cl2"><div class="ch-left"></div><div class="ch-inner"><div class="ch-label">課題 02 — AI文章が長すぎた</div><div class="ch-title">Claude APIが長文サマリーを返し続けた</div><div class="ch-body">「今週のサマリーを生成して」と指示したところ段落ありの長文が返り、スマートフォンで3スクロール分の量になり実用性が著しく低下しました。</div><div class="sol-box"><div class="sol-label">✅ 解決方法</div><div class="sol-body">プロンプトに「箇条書き2行のみ・1行30文字以内・余計な説明不要」と明記し、加えてmax_tokens:120に制限。どのような状況でも必ず短文で返る設計に変更しました。</div></div></div></div>
+    <div class="ch-card cl3"><div class="ch-left"></div><div class="ch-inner"><div class="ch-label">課題 03 — 誤ったアラート通知</div><div class="ch-title">本申込済みなのにローンアラートが出た</div><div class="ch-body">ローン特約期日の超過を検知する機能を実装したところ、すでにローン本申込が完了した顧客にも「期日超過！」のアラートが表示されてしまいました。</div><div class="sol-box"><div class="sol-label">✅ 解決方法</div><div class="sol-body">①本申込済みであればアラートを非表示、②期日超過かつ本申込済みであれば「手続き完了」とみなしてフォローリストから完全除外、という二段階の判定ロジックを追加しました。</div></div></div></div>
+    <div class="ch-card cl4"><div class="ch-left"></div><div class="ch-inner"><div class="ch-label">課題 04 — GAS構文エラー</div><div class="ch-title">コード貼り付け時にSyntaxErrorが発生</div><div class="ch-body">GASエディタへの貼り付け時に「SyntaxError: Unexpected end of input 行:479」というエラーが発生。コードが途中で切れた状態でエディタに入った状態でした。</div><div class="sol-box"><div class="sol-label">✅ 解決方法</div><div class="sol-body">コードファイル全体を最初から最後まで一括コピーし直し、GASエディタの既存コードを全削除してから貼り付ける手順を徹底。Cmd+S保存→関数実行の順序を守ることで解消しました。</div></div></div></div>
+  </div>
+
+  <div class="result-box">
+    <div class="result-title">🎯 システム導入による効果（3つのゼロ）</div>
+    <div class="result-item"><div class="r-badge">①</div><div><strong>見落としゼロ</strong> — ローン期日や長期未フォローを自動検知し、毎週木曜9:00に確実に通知。優先度の高いものが画面の上に来る設計で重要事項を見逃さない。</div></div>
+    <div class="result-item"><div class="r-badge">②</div><div><strong>現場負担ゼロ</strong> — 既存のスプレッドシート運用を一切変えず、新しい入力ルール・列追加・別ツールの学習が不要。一度トリガーを設定すれば以降は完全自動。</div></div>
+    <div class="result-item"><div class="r-badge">③</div><div><strong>判断の迷いゼロ</strong> — AIが「今週やること」を2行で提示。出社直後にメールを確認するだけで、その日の最優先アクションが即座に分かる。</div></div>
+  </div>
+</div>
+
+<div style="max-width:960px;margin:0 auto;padding:0 32px;margin-top:32px">
+  <div style="background:#1e1b4b;border-radius:18px;padding:28px;color:white;text-align:center">
+    <div style="font-size:18px;font-weight:800;margin-bottom:8px">🏠 土地なし管理客 週次レポートシステム</div>
+    <div style="font-size:13px;opacity:.7;line-height:1.9">Google Apps Script + Claude AI (claude-opus-4-5) による自動化システム<br>毎週木曜日 朝9:00 に自動実行 → Gmail でレポート送信</div>
+  </div>
+</div>
+</body>
+</html>

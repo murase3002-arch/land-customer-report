@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gmail Preview — 土地なし管理客レポート</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#f6f8fc;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;padding:24px 16px}
+.back{text-align:center;margin-bottom:16px}
+.back a{color:#6366f1;font-size:13px;font-weight:600;text-decoration:none}
+.phone-frame{max-width:390px;margin:0 auto;background:#fff;border-radius:40px;box-shadow:0 24px 80px rgba(0,0,0,.2);overflow:hidden;border:8px solid #1a1a1a}
+.status-bar{background:#fff;padding:12px 24px 6px;display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:600}
+.gmail-header{background:#fff;padding:10px 16px 8px;border-bottom:1px solid #e8eaed}
+.gmail-from{font-size:13px;font-weight:600;color:#202124}
+.gmail-subject{font-size:11px;color:#5f6368;margin-top:1px}
+.email-body{padding:0;overflow-y:auto;max-height:700px}
+.ec{max-width:480px;margin:0 auto;padding:12px;background:#f0f2f5}
+.header-card{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;padding:20px 18px;border-radius:14px;margin-bottom:12px}
+.header-label{font-size:10px;opacity:.75;letter-spacing:1.5px;margin-bottom:5px}
+.header-title{font-size:18px;font-weight:bold;margin-bottom:3px}
+.header-date{font-size:12px;opacity:.85}
+.stats-row{display:flex;gap:6px;margin-bottom:6px}
+.stat-box{flex:1;background:white;border-radius:12px;padding:14px;text-align:center}
+.stat-num{font-size:28px;font-weight:bold}
+.stat-lbl{font-size:11px;color:#888;margin-top:2px}
+.ai-box{background:#f5f3ff;border-radius:12px;padding:12px 14px;margin-bottom:12px;border-left:4px solid #7c3aed}
+.ai-label{font-size:11px;font-weight:bold;color:#7c3aed;margin-bottom:7px}
+.ai-text{font-size:12px;color:#333;line-height:1.9}
+.loan-alert-box{background:#fff0f0;border-radius:12px;padding:14px;margin-bottom:12px;border:2px solid #ff6b6b}
+.loan-alert-title{background:#ff6b6b;color:white;border-radius:6px;padding:4px 9px;font-size:12px;font-weight:bold;display:inline-block;margin-bottom:10px}
+.customer-card{border-left:4px solid #ff6b6b;background:#fff5f5;border-radius:0 8px 8px 0;padding:10px;margin-bottom:8px}
+.customer-card.yellow{border-left-color:#fcc419;background:#fffbf0}
+.cc-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
+.cc-name{font-size:14px;font-weight:bold;color:#333}
+.cc-badge{background:#ff6b6b;color:white;font-size:10px;padding:2px 8px;border-radius:12px}
+.cc-badge.orange{background:#e67700}
+.cc-detail{font-size:11px;color:#999;margin-bottom:5px}
+.cc-challenge{display:inline-block;background:white;border:1px solid #ff6b6b;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:bold;color:#ff6b6b}
+.cc-challenge.orange{border-color:#e67700;color:#e67700}
+.stage-pill{display:inline-block;font-size:9px;padding:1px 5px;border-radius:3px;background:#eef2ff;color:#5c7cfa;margin:0 2px 3px 0}
+.follow-box{background:white;border-radius:12px;padding:14px;margin-bottom:12px}
+.follow-title{background:#fff0f0;color:#ff6b6b;border-radius:6px;padding:4px 9px;font-size:12px;font-weight:bold;display:inline-block;margin-bottom:10px}
+.stage-box{background:white;border-radius:12px;padding:14px;margin-bottom:12px}
+.stage-title{font-size:14px;font-weight:bold;color:#333;margin-bottom:12px}
+.stage-row{margin-bottom:10px}
+.stage-label-row{display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px}
+.stage-bar-bg{background:#f0f0f0;border-radius:4px;height:7px}
+.stage-bar{height:7px;border-radius:4px}
+.footer{text-align:center;font-size:10px;color:#aaa;padding:8px 0 4px}
+</style>
+</head>
+<body>
+<div class="back"><a href="index.html">← 一覧に戻る</a></div>
+<div class="phone-frame">
+  <div class="status-bar"><span>9:03</span><span>●●●● WiFi 🔋</span></div>
+  <div class="gmail-header">
+    <div class="gmail-from">土地なし管理客レポートシステム</div>
+    <div class="gmail-subject">🚨ローン期日警告1件【土地なし管理客レポート】2026年5月7日（未フォロー3名）</div>
+  </div>
+  <div class="email-body">
+    <div class="ec">
+      <div class="header-card">
+        <div class="header-label">WEEKLY REPORT</div>
+        <div class="header-title">土地なし管理客レポート</div>
+        <div class="header-date">2026年5月7日（木曜日）</div>
+      </div>
+      <div class="stats-row">
+        <div class="stat-box" style="border-top:3px solid #667eea"><div class="stat-num" style="color:#667eea">8</div><div class="stat-lbl">総顧客数</div></div>
+        <div class="stat-box" style="border-top:3px solid #ff6b6b"><div class="stat-num" style="color:#ff6b6b">3</div><div class="stat-lbl">未フォロー</div></div>
+      </div>
+      <div class="stats-row" style="margin-bottom:12px">
+        <div class="stat-box" style="border-top:3px solid #51cf66"><div class="stat-num" style="color:#51cf66">5</div><div class="stat-lbl">フォロー中</div></div>
+        <div class="stat-box" style="border-top:3px solid #c92a2a"><div class="stat-num" style="color:#c92a2a">1</div><div class="stat-lbl">ローン期日警告</div></div>
+      </div>
+      <div class="ai-box">
+        <div class="ai-label">✨ 今週のアドバイス</div>
+        <div class="ai-text">・田中様のローン特約期日まであと5日<br>・佐藤様ほか2名に今週中に連絡を</div>
+      </div>
+      <div class="loan-alert-box">
+        <div class="loan-alert-title">🚨 ローン特約期日が迫っています（1名）</div>
+        <div class="customer-card">
+          <div class="cc-row"><div class="cc-name">田中 健太</div><div class="cc-badge">あと5日</div></div>
+          <div class="cc-detail">ローン特約期日：2026/5/12　ローン本申込：未</div>
+          <div style="font-size:12px;color:#666">東部エリア・4000万円台・4LDK希望</div>
+          <div style="margin-top:6px"><div class="cc-challenge">! ローン特約期日まで5日！</div></div>
+        </div>
+      </div>
+      <div class="follow-box">
+        <div class="follow-title">⚠ 要フォロー 3名</div>
+        <div class="customer-card">
+          <div class="cc-row"><div class="cc-name">佐藤 美咲</div><div class="cc-badge">45日前</div></div>
+          <div class="cc-detail">初回接客：2026/1/15　最終フォロー：2026/3/21</div>
+          <div><span class="stage-pill">紹介あり</span><span class="stage-pill">紹介HM契約</span></div>
+          <div style="margin-top:4px;font-size:11px;color:#666">西部エリア・3500万円・3LDK希望</div>
+          <div style="margin-top:6px"><div class="cc-challenge">! 課題：HM契約済み・土地マッチングが課題</div></div>
+        </div>
+        <div class="customer-card yellow">
+          <div class="cc-row"><div class="cc-name">山田 浩二</div><div class="cc-badge orange">22日前</div></div>
+          <div class="cc-detail">初回接客：2026/2/08　最終フォロー：2026/4/13</div>
+          <div><span class="stage-pill">紹介あり</span></div>
+          <div style="margin-top:4px;font-size:11px;color:#666">中央エリア・4500万円・新築戸建</div>
+          <div style="margin-top:6px"><div class="cc-challenge orange">! 課題：HM契約への誘導が課題</div></div>
+        </div>
+        <div class="customer-card">
+          <div class="cc-row"><div class="cc-name">鈴木 花子</div><div class="cc-badge">38日前</div></div>
+          <div class="cc-detail">初回接客：2026/1/20　最終フォロー：2026/3/28</div>
+          <div style="margin-top:4px;font-size:11px;color:#666">南部エリア・3000万円・土地購入希望</div>
+          <div style="margin-top:6px"><div class="cc-challenge">! 課題：長期未連絡・再接触が課題</div></div>
+        </div>
+      </div>
+      <div class="stage-box">
+        <div class="stage-title">ステージ別進捗</div>
+        <div class="stage-row"><div class="stage-label-row"><span>紹介あり</span><span style="font-weight:bold;color:#7950f2">6名</span></div><div class="stage-bar-bg"><div class="stage-bar" style="background:#7950f2;width:75%"></div></div></div>
+        <div class="stage-row"><div class="stage-label-row"><span>紹介HM契約</span><span style="font-weight:bold;color:#0ca678">4名</span></div><div class="stage-bar-bg"><div class="stage-bar" style="background:#0ca678;width:50%"></div></div></div>
+        <div class="stage-row"><div class="stage-label-row"><span>土地契約</span><span style="font-weight:bold;color:#51cf66">2名</span></div><div class="stage-bar-bg"><div class="stage-bar" style="background:#51cf66;width:25%"></div></div></div>
+        <div class="stage-row"><div class="stage-label-row"><span>ローン本申込</span><span style="font-weight:bold;color:#1971c2">2名</span></div><div class="stage-bar-bg"><div class="stage-bar" style="background:#1971c2;width:25%"></div></div></div>
+        <div class="stage-row"><div class="stage-label-row"><span>決裁案内</span><span style="font-weight:bold;color:#e67700">1名</span></div><div class="stage-bar-bg"><div class="stage-bar" style="background:#e67700;width:12%"></div></div></div>
+      </div>
+      <div class="footer">Google Apps Script + Claude AI により自動生成</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

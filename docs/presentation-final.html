@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10分発表原稿 — 土地なし管理客レポートシステム</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue','Hiragino Sans',Arial,sans-serif;background:#f5f7ff;color:#1a1a2e;padding:0 0 80px}
+.back{text-align:center;padding:16px}
+.back a{color:#6366f1;font-size:13px;font-weight:600;text-decoration:none}
+.cover{background:linear-gradient(135deg,#1e1b4b 0%,#4338ca 100%);color:white;padding:52px 40px 44px;position:relative;overflow:hidden}
+.cover::after{content:'';position:absolute;top:-60px;right:-60px;width:280px;height:280px;background:rgba(255,255,255,.06);border-radius:50%}
+.cover-eyebrow{font-size:11px;font-weight:700;letter-spacing:3px;opacity:.6;margin-bottom:14px}
+.cover-title{font-size:32px;font-weight:900;line-height:1.3;margin-bottom:10px}
+.cover-sub{font-size:14px;opacity:.7;margin-bottom:28px;line-height:1.7}
+.cover-tags{display:flex;flex-wrap:wrap;gap:8px}
+.cover-tag{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600}
+.cover-guide{margin-top:24px;padding-top:18px;border-top:1px solid rgba(255,255,255,.2);font-size:12px;opacity:.55;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:0 28px}
+.part{background:white;border-radius:20px;margin:22px 0 0;box-shadow:0 2px 18px rgba(0,0,0,.07);border:1px solid rgba(0,0,0,.05);overflow:hidden}
+.ph{padding:18px 26px 14px;display:flex;align-items:center;gap:14px;border-bottom:1px solid #f3f4f6}
+.pi{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.pm{flex:1}
+.pn{font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:2px}
+.pt{font-size:19px;font-weight:800;color:#111}
+.pbadge{background:#f3f4f6;color:#6b7280;font-size:12px;font-weight:700;padding:4px 13px;border-radius:20px;white-space:nowrap;flex-shrink:0}
+.t1 .ph{border-left:5px solid #6366f1} .t1 .pi{background:#eef2ff} .t1 .pn{color:#6366f1}
+.t2 .ph{border-left:5px solid #f43f5e} .t2 .pi{background:#fff1f2} .t2 .pn{color:#f43f5e}
+.t3 .ph{border-left:5px solid #7c3aed} .t3 .pi{background:#f5f3ff} .t3 .pn{color:#7c3aed}
+.t4 .ph{border-left:5px solid #f59e0b} .t4 .pi{background:#fffbeb} .t4 .pn{color:#f59e0b}
+.t5 .ph{border-left:5px solid #10b981} .t5 .pi{background:#f0fdf4} .t5 .pn{color:#10b981}
+.t6 .ph{border-left:5px solid #3b82f6} .t6 .pi{background:#eff6ff} .t6 .pn{color:#3b82f6}
+.pb{padding:20px 26px 24px}
+.sc{font-size:15px;line-height:2.1;color:#374151;margin-bottom:16px}
+.sc p{margin-bottom:13px}
+.sc p:last-child{margin-bottom:0}
+.em{font-weight:800;color:#111}
+.eb{font-weight:700;color:#4338ca}
+.er{font-weight:700;color:#dc2626}
+.ep{font-weight:700;color:#7c3aed}
+.eg{font-weight:700;color:#16a34a}
+.dv{display:flex;align-items:center;gap:10px;font-size:12px;color:#9ca3af;margin:16px 0}
+.dv::before,.dv::after{content:'';flex:1;height:1px;background:#f3f4f6}
+.pbox{border-radius:12px;padding:14px 16px;margin:12px 0;font-size:14px;line-height:1.9}
+.pb-blue{background:#eff6ff;border:1.5px solid #bfdbfe;color:#1e40af}
+.pb-purple{background:#f5f3ff;border:1.5px solid #ddd6fe;color:#5b21b6}
+.pb-amber{background:#fffbeb;border:1.5px solid #fde68a;color:#78350f}
+.pb-red{background:#fff1f2;border:1.5px solid #fecdd3;color:#881337}
+.pbox strong{font-weight:800}
+.sl{display:flex;flex-direction:column;gap:8px;margin:12px 0}
+.si{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:#374151;line-height:1.7}
+.snb{width:24px;height:24px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0}
+.sn1{background:#eef2ff;color:#4338ca} .sn2{background:#f0fdf4;color:#16a34a} .sn3{background:#fffbeb;color:#d97706}
+.sn4{background:#f5f3ff;color:#7c3aed} .sn5{background:#eff6ff;color:#2563eb} .sn6{background:#fff1f2;color:#dc2626}
+.qa-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+.qa-card{background:#f9fafb;border-radius:10px;padding:12px 14px;border:1px solid #e5e7eb}
+.qa-q{font-size:12px;font-weight:700;color:#6366f1;margin-bottom:5px}
+.qa-a{font-size:12px;color:#374151;line-height:1.7}
+.sum-box{background:linear-gradient(135deg,#f5f3ff,#eef2ff);border:2px solid #ddd6fe;border-radius:14px;padding:20px 22px;margin:12px 0}
+.sum-title{font-size:14px;font-weight:800;color:#4c1d95;margin-bottom:14px}
+.sum-item{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:#374151;line-height:1.7;margin-bottom:10px}
+.sum-item:last-child{margin-bottom:0}
+.sb{width:24px;height:24px;border-radius:6px;background:#7c3aed;color:white;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;margin-top:2px}
+@media(max-width:600px){.cover{padding:36px 22px 30px}.cover-title{font-size:24px}.wrap{padding:0 18px}.ph{padding:14px 18px 12px}.pb{padding:16px 18px 20px}.qa-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="back"><a href="index.html">← 一覧に戻る</a></div>
+<div class="cover">
+  <div class="cover-eyebrow">10分発表原稿</div>
+  <div class="cover-title">🏠 土地なし管理客<br>週次レポートシステム</div>
+  <div class="cover-sub">Google Apps Script × Claude AI による<br>不動産顧客フォロー管理の完全自動化</div>
+  <div class="cover-tags">
+    <span class="cover-tag">⏱ 全6パート・約10分</span>
+    <span class="cover-tag">📱 図解・完成画面を見せながら話す</span>
+    <span class="cover-tag">🎯 工夫ポイントに4分配分</span>
+  </div>
+  <div class="cover-guide">▶ 太字は強調して読む　▶〔　〕は画面を指しながら話すタイミング　▶ … は少し間を置く</div>
+</div>
+
+<div class="wrap">
+
+<div class="part t1">
+  <div class="ph"><div class="pi">👋</div><div class="pm"><div class="pn">Part 01</div><div class="pt">はじめに・このシステムで解決したこと</div></div><div class="pbadge">⏱ 約1分</div></div>
+  <div class="pb">
+    <div class="sc">
+      <p>本日は、私が作成した<span class="em">「土地なし管理客 週次レポートシステム」</span>についてご紹介します。</p>
+      <p>まず、このシステムを作ろうと思ったきっかけからお話しします。</p>
+      <p>不動産営業では、スプレッドシートでお客様を管理していますが、毎週<span class="er">「誰を今週フォローすべきか」「ローンの期日が迫っているお客様はいないか」</span>を手作業で確認するのは、時間がかかる上に見落とすリスクがありました。</p>
+      <p>特に<span class="er">ローン特約期日</span>は、期限を過ぎると契約が白紙になるリスクがあるため、絶対に見落とせません。</p>
+      <p>そこで、<span class="em">「毎週自動で、要点だけを届ける」</span>仕組みを作りました。</p>
+    </div>
+  </div>
+</div>
+
+<div class="part t2">
+  <div class="ph"><div class="pi">🗺</div><div class="pm"><div class="pn">Part 02</div><div class="pt">システムの全体像（図解を見ながら）</div></div><div class="pbadge">⏱ 約2分</div></div>
+  <div class="pb">
+    <div class="pbox pb-blue">〔システム図解を画面で見せながら話す〕<br>👉 <strong><a href="system-diagram.html" style="color:#1e40af">system-diagram.html</a></strong></div>
+    <div class="sc"><p>こちらがシステムの全体図です。処理は大きく<span class="em">6つのステップ</span>に分かれています。</p></div>
+    <div class="sl">
+      <div class="si"><div class="snb sn1">①</div><div><span class="em">自動トリガー起動</span>：毎週木曜日の朝9時に自動で起動します。一度設定すれば、以降は何もしなくても動き続けます。</div></div>
+      <div class="si"><div class="snb sn2">②</div><div><span class="em">スプレッドシート読み込み</span>：2シートからA〜J列の10項目を一括取得します。お客様名・フォロー状況・ローン特約期日・各チェックボックスなどです。</div></div>
+      <div class="si"><div class="snb sn3">③</div><div><span class="em">スマートフィルタリング</span>：「誰を表示するか・しないか」を複数の条件で自動判断します。詳しくは後ほどの工夫ポイントでご説明します。</div></div>
+      <div class="si"><div class="snb sn4">④</div><div><span class="em">Claude AIでサマリー生成</span>：Anthropic社のAIに今週やるべきことを2行で返してもらいます。</div></div>
+      <div class="si"><div class="snb sn5">⑤</div><div><span class="em">HTMLメール送信</span>：見やすく整形したレポートをGmailで自動送信します。</div></div>
+      <div class="si"><div class="snb sn6">⑥</div><div><span class="em">ステージパイプライン</span>：紹介あり→HM契約→土地契約→ローン本申込→決裁案内という5段階で顧客の進捗を管理します。</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="part t3">
+  <div class="ph"><div class="pi">📱</div><div class="pm"><div class="pn">Part 03</div><div class="pt">完成したメール画面の紹介</div></div><div class="pbadge">⏱ 約1分</div></div>
+  <div class="pb">
+    <div class="pbox pb-purple">〔Gmailプレビューを画面で見せながら話す〕<br>👉 <strong><a href="gmail-preview.html" style="color:#5b21b6">gmail-preview.html</a></strong></div>
+    <div class="sc">
+      <p>こちらが実際にGmailに届くメールの画面です。</p>
+      <p>上から順に、<span class="ep">グラデーションのヘッダー</span>で日付と曜日を表示。その下に<span class="ep">4枚の統計カード</span>があり、総顧客数・未フォロー数・フォロー中・ローン期日警告が一目で分かります。</p>
+      <p>次に<span class="ep">AIアドバイス</span>が2行で表示されます。その下に<span class="er">ローンアラート</span>と<span class="er">要フォロー顧客リスト</span>、最後に<span class="ep">ステージ別進捗バー</span>という構成です。</p>
+      <p>重要なのは、<span class="em">スマートフォンで開いた瞬間に、統計カードとAIアドバイスが1画面に収まる</span>ことです。開いて5秒で「今日何をすべきか」が分かります。</p>
+    </div>
+  </div>
+</div>
+
+<div class="part t4">
+  <div class="ph"><div class="pi">⚡</div><div class="pm"><div class="pn">Part 04</div><div class="pt">工夫したポイント（ここがメイン！）</div></div><div class="pbadge">⏱ 約4分</div></div>
+  <div class="pb">
+    <div class="sc"><p>今回最も力を入れた<span class="em">工夫ポイントを6つ</span>ご紹介します。</p></div>
+    <div class="dv">工夫① 4つのパーツの決め方</div>
+    <div class="sc">
+      <p><span class="em">なぜメールをこの4つのパーツ構成にしたか</span>についてです。</p>
+      <p>設計のコンセプトは<span class="eb">「開いて5秒で判断できる」</span>でした。忙しい朝に長いレポートを読む時間はありません。そこで情報の優先度を考え、上から「数字→AIの一言→緊急アラート→詳細リスト」の順に並べました。特に<span class="er">ローンアラートはAIアドバイスの直下に配置</span>し、最優先で目に入るようにしています。</p>
+    </div>
+    <div class="dv">工夫② 既存の運用を一切変えない設計</div>
+    <div class="sc">
+      <p><span class="em">スプレッドシートの運用方法を1つも変えていません。</span></p>
+      <p>今回は<span class="eg">列の並び・チェックボックスの使い方・灰色塗りによる管理方法、すべてそのまま</span>使えるよう、システム側が合わせる設計にしました。</p>
+    </div>
+    <div class="dv">工夫③ 背景色を読み取る打ち切り客の除外</div>
+    <div class="sc">
+      <p>スプレッドシートでは「終了した顧客の行を濃い灰色に塗る」慣習があります。<span class="eb">A列の背景色をRGB値として読み取り</span>、グレー系かつ一定の明るさ以下という条件でプログラムが自動判定します。<span class="em">今まで通り灰色に塗るだけで自動除外</span>されます。</p>
+    </div>
+    <div class="dv">工夫④ ローンアラートの精密な3条件判定</div>
+    <div class="sc"><p>ローン特約期日のアラートは、単純に「期日が近い」だけで出すと<span class="er">誤通知</span>が発生します。「もうローン本申込を済ませたのにアラートが出続ける」という問題が実際に起きました。そこで3つの条件を組み合わせました。</p></div>
+    <div class="pbox pb-amber">
+      <strong>🚨 アラートを出す</strong>：期日まで14日以内 かつ ローン本申込チェックなし<br>
+      <strong>🔕 アラートを消す</strong>：ローン本申込チェックあり → 申込済みなので通知不要<br>
+      <strong>✅ フォローリストから除外</strong>：期日超過 かつ 本申込済み → 手続き完了とみなす
+    </div>
+    <div class="sc"><p><span class="em">必要な人だけにアラートが届く</span>、誤通知ゼロの設計です。</p></div>
+    <div class="dv">工夫⑤ AIサマリーを「必ず短く返す」仕組み</div>
+    <div class="sc">
+      <p>Claude AIに普通に依頼すると<span class="er">長文が返ってきてスマホで3スクロール分</span>になってしまいました。そこで2段階の制限をかけました。プロンプトで「<span class="ep">箇条書き2行のみ・1行は30文字以内・余計な前置き不要</span>」と明記し、さらに<span class="ep">max_tokensを120に制限</span>することで、物理的に長文が返せない設計にしています。</p>
+    </div>
+    <div class="dv">工夫⑥ メールで崩れないtableレイアウト</div>
+    <div class="sc">
+      <p>GmailなどのメールアプリはCSS Grid・Flexboxを<span class="er">正しく解釈できない</span>ことがあります。そこで統計カードや顧客カードをすべて昔ながらの<span class="eb">&lt;table&gt;タグ</span>で構築し直しました。見た目はモダンで美しく、でも裏側は確実に表示される構造です。</p>
+    </div>
+  </div>
+</div>
+
+<div class="part t5">
+  <div class="ph"><div class="pi">🧩</div><div class="pm"><div class="pn">Part 05</div><div class="pt">ぶつかった課題とその解決</div></div><div class="pbadge">⏱ 約1分</div></div>
+  <div class="pb">
+    <div class="sc"><p>開発中に特に苦労した課題を2つご紹介します。</p></div>
+    <div class="pbox pb-red"><strong>課題①：GASエディタでSyntaxErrorが発生</strong><br>コードを貼り付けた際に「SyntaxError: Unexpected end of input 行:479」というエラーが出ました。コードが途中で切れた状態で貼り付けられていたことが原因でした。<br><br><strong>→ 解決：</strong>コードファイル全体を最初から最後まで一括コピーし直し、GASエディタの既存コードをすべて削除してから貼り付ける手順を徹底しました。</div>
+    <div class="pbox pb-amber" style="margin-top:10px"><strong>課題②：お客様の名前が崩れて表示される</strong><br>スプレッドシートのセルに全角スペースやセル内改行が混入していて名前が崩れて表示されていました。<br><br><strong>→ 解決：</strong>cleanName()という関数を作り、全角スペースを半角に変換・改行をスペースに置換・連続スペースを1つにまとめる処理を自動化しました。</div>
+  </div>
+</div>
+
+<div class="part t6">
+  <div class="ph"><div class="pi">🎯</div><div class="pm"><div class="pn">Part 06</div><div class="pt">まとめ・導入効果・今後の展望</div></div><div class="pbadge">⏱ 約1分</div></div>
+  <div class="pb">
+    <div class="sc"><p>今回のシステムで実現できたことを、<span class="em">「3つのゼロ」</span>でまとめます。</p></div>
+    <div class="sum-box">
+      <div class="sum-title">✅ システム導入で実現した「3つのゼロ」</div>
+      <div class="sum-item"><div class="sb">①</div><div><strong>見落としゼロ</strong>：ローン期日や長期未フォローを自動検知。毎週木曜9時に確実に通知が届くため、人間が気にしなくてよくなりました。</div></div>
+      <div class="sum-item"><div class="sb">②</div><div><strong>現場負担ゼロ</strong>：既存のスプレッドシートをそのまま使い続けられます。新しい入力ルールも別ツールの学習も一切不要です。</div></div>
+      <div class="sum-item"><div class="sb">③</div><div><strong>判断の迷いゼロ</strong>：AIが「今週やること」を2行で提示。出社直後にメールを開けば、その日の最優先アクションがすぐに分かります。</div></div>
+    </div>
+    <div class="sc">
+      <p>今後の展望としては、フォロー内容をAIが自動記録する機能や、LINE通知への対応なども検討しています。</p>
+      <p>このシステムの最大の特徴は、<span class="em">「現場の使い方を変えずに、自動化の恩恵だけを受け取れる」</span>点です。</p>
+      <p>ご清聴ありがとうございました。ご質問があればお受けします。</p>
+    </div>
+    <div class="dv">想定Q&amp;A</div>
+    <div class="qa-grid">
+      <div class="qa-card"><div class="qa-q">Q. AIが間違った内容を返したら？</div><div class="qa-a">AIサマリーはあくまで参考情報です。詳細はメール下部の顧客カードで確認できるためAIに頼りすぎない設計にしています。</div></div>
+      <div class="qa-card"><div class="qa-q">Q. 他のスタッフも使えますか？</div><div class="qa-a">GASのCONFIGにメールアドレスを追加するだけで複数人に同時送信できます。</div></div>
+      <div class="qa-card"><div class="qa-q">Q. メンテナンスは必要ですか？</div><div class="qa-a">列の構成が変わった場合のみCOL定数の修正が必要です。通常運用では手動操作は不要です。</div></div>
+      <div class="qa-card"><div class="qa-q">Q. コストはかかりますか？</div><div class="qa-a">GAS・Gmailは無料。Claude APIは週1回・120トークン以内の使用であれば月数十円程度です。</div></div>
+    </div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>
