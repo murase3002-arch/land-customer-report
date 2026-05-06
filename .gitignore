@@ -4,5 +4,6 @@ node_modules/
 /tmp/
 output/
 *.png
+!docs/consultie-land-partner/*.png
 .env
 .env.local
