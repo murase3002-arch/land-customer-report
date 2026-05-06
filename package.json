@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "GitHubコミットをAIで分析・図解し、Slackに自動投稿するツール",
   "private": true,
+  "scripts": {
+    "serve:consultie-diagrams": "node scripts/serve-consultie-diagrams.js"
+  },
   "engines": {
     "node": ">=18"
   },
   "dependencies": {
-    "playwright": "^1.57.0"
+    "playwright": "^1.59.1"
   }
 }
