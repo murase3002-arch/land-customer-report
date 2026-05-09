@@ -4,185 +4,691 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>不動産会社様向けチラシ — Consul t i e 連携パートナー</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- ビジュアルトーン: aki-no-iezukuri.co.jp の LP（SWELL 系トークン）に合わせた配色・タイポのみ。当社とは無関係です。 -->
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif; }
+    :root {
+      --color-main: #e58e60;
+      --color-main-dark: #ac6b48;
+      --color-main-soft: rgba(255, 178, 120, 0.12);
+      --color-text: #333333;
+      --color-text-sub: #555555;
+      --color-muted: #6b6b6b;
+      --color-link: #0c73d3;
+      --color-bg: #fdfdfd;
+      --color-bg-screen: #eceff4;
+      --gradient-1: #e8fbff;
+      --gradient-2: #b8efff;
+      --color-faq-q: #d55656;
+      --color-faq-a: #6599b7;
+      --color-faq-a-bg: rgba(101, 153, 183, 0.12);
+      --color-border: rgba(0, 0, 0, 0.08);
+      --radius: 10px;
+      --radius-sm: 8px;
+      --shadow-sm: 0 2px 12px rgba(51, 51, 51, 0.06);
+      --font: "Yu Gothic UI", "YuGothic", "游ゴシック体", "Yu Gothic", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+      --ls: 0.025em;
+      --fw: 500;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: var(--font);
+      font-weight: var(--fw);
+      letter-spacing: var(--ls);
+      color: var(--color-text);
+      line-height: 1.55;
+      font-size: 10.5pt;
+      background: var(--color-bg-screen);
+    }
+
     @page { size: A4 portrait; margin: 0; }
+
     @media print {
-      html, body { background: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-      .flyer-page { box-shadow: none !important; margin: 0 !important; border-radius: 0 !important; }
+      html, body {
+        background: #fff !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .flyer-page {
+        box-shadow: none !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        background: var(--color-bg) !important;
+      }
       .no-print { display: none !important; }
     }
+
     @media screen {
-      body { background: #e2e8f0; }
+      .flyer-page { margin: 1.25rem auto; box-shadow: var(--shadow-sm); }
     }
+
+    .no-print {
+      text-align: center;
+      font-size: 0.8125rem;
+      color: var(--color-muted);
+      padding: 0.75rem 1rem 0.5rem;
+      max-width: 48rem;
+      margin: 0 auto;
+    }
+
     .flyer-page {
       width: 210mm;
       min-height: 297mm;
-      box-sizing: border-box;
-      padding: 12mm 14mm;
+      padding: 11mm 13mm;
+      background: var(--color-bg);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 2px;
+    }
+
+    /* ヒーローバンド（参考LPの水色グラデ） */
+    .hero-sky {
+      margin: -3mm -4mm 10px -4mm;
+      padding: 10px 14px 14px;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, var(--gradient-1) 0%, #f5feff 45%, #fff 100%);
+      border: 1px solid rgba(135, 231, 255, 0.35);
+    }
+
+    .eyebrow {
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-faq-a);
+      margin-bottom: 6px;
+    }
+
+    .hero-row {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .hero-copy { flex: 1; min-width: 0; }
+
+    h1 {
+      margin: 0;
+      font-size: 17pt;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--color-text);
+    }
+
+    h1 .accent {
+      color: var(--color-main);
+      position: relative;
+    }
+
+    .lead {
+      margin: 8px 0 0;
+      font-size: 10.5px;
+      color: var(--color-text-sub);
+      line-height: 1.65;
+    }
+
+    .qr-placeholder {
+      flex-shrink: 0;
+      width: 22mm;
+      height: 22mm;
+      border-radius: var(--radius-sm);
+      border: 2px dashed rgba(229, 142, 96, 0.45);
       background: #fff;
-      margin: 1rem auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 7.5px;
+      line-height: 1.35;
+      color: var(--color-main-dark);
+      padding: 4px;
+    }
+
+    /* プロフィール行 */
+    .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+    }
+
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(145deg, var(--color-main) 0%, var(--color-main-dark) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(229, 142, 96, 0.35);
+    }
+
+    .brand-icon svg { width: 20px; height: 20px; color: #fff; }
+
+    .brand-name {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--color-text);
+    }
+
+    .brand-tag {
+      font-size: 9px;
+      color: var(--color-muted);
+      margin-top: 1px;
+    }
+
+    .check-list {
+      list-style: none;
+      margin: 10px 0 0;
+      padding: 0;
+    }
+
+    .check-list li {
+      position: relative;
+      padding-left: 1.1em;
+      font-size: 9.5px;
+      color: var(--color-text-sub);
+      margin-bottom: 4px;
+      line-height: 1.5;
+    }
+
+    .check-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.45em;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--color-main);
+      box-shadow: 0 0 0 2px var(--color-main-soft);
+    }
+
+    /* cap box（参考サイトのキャプションボックス風） */
+    .cap-box {
+      margin-top: 14px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--color-main);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .cap-box__ttl {
+      background: var(--color-main);
+      color: #fff;
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 8px 12px;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .cap-box__ttl svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+
+    .cap-box__body {
+      padding: 11px 12px;
+      background: #fff;
+      border-top: none;
+    }
+
+    .cap-box__body p {
+      margin: 0 0 8px;
+      font-size: 10px;
+      color: var(--color-text);
+      line-height: 1.65;
+    }
+
+    .cap-box__body .note-list {
+      margin: 0;
+      padding-left: 1em;
+      font-size: 9px;
+      color: var(--color-text-sub);
+    }
+
+    .cap-box__body .note-list li { margin-bottom: 3px; }
+
+    .highlight {
+      font-weight: 700;
+      color: var(--color-main-dark);
+    }
+
+    /* ベネフィットカード */
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .benefit {
+      background: #fff;
+      border-radius: var(--radius-sm);
+      padding: 9px 8px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: 0 1px 6px rgba(51, 51, 51, 0.04);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .benefit::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gradient-2), var(--color-main));
+      opacity: 0.85;
+    }
+
+    .benefit-num {
+      font-size: 8px;
+      font-weight: 700;
+      color: var(--color-faq-a);
+      letter-spacing: 0.08em;
+      margin-bottom: 3px;
+    }
+
+    .benefit-title {
+      font-size: 9.5px;
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 3px;
+    }
+
+    .benefit-desc {
+      font-size: 8.5px;
+      color: var(--color-muted);
+      line-height: 1.45;
+    }
+
+    .contact-strip {
+      margin-top: 14px;
+      padding-top: 11px;
+      border-top: 1px solid rgba(0, 0, 0, 0.07);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 10px;
+      font-size: 8.5px;
+      color: var(--color-muted);
+    }
+
+    .contact-strip strong {
+      display: block;
+      font-size: 9px;
+      color: var(--color-text);
+      margin-bottom: 3px;
+    }
+
+    .disclaimer-mini {
+      font-size: 7.5px;
+      color: #999;
+      max-width: 46mm;
+      text-align: right;
+      line-height: 1.45;
+    }
+
+    /* ===== 裏面 ===== */
+    .back-title {
+      margin: 0;
+      font-size: 13pt;
+      font-weight: 700;
+      color: var(--color-main);
+      padding-bottom: 8px;
+      border-bottom: 2px solid rgba(229, 142, 96, 0.35);
+    }
+
+    .back-lead {
+      margin: 6px 0 0;
+      font-size: 9px;
+      color: var(--color-muted);
+    }
+
+    .steps {
+      margin: 12px 0 0;
+      padding: 0;
+      list-style: none;
+      position: relative;
+    }
+
+    .steps::before {
+      content: "";
+      position: absolute;
+      left: 11px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--gradient-2), var(--color-main-soft));
+      border-radius: 2px;
+    }
+
+    .step {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-bottom: 8px;
+      position: relative;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, var(--color-main) 0%, var(--color-main-dark) 100%);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 6px rgba(229, 142, 96, 0.35);
+      z-index: 1;
+    }
+
+    .step:nth-child(2) .step-num { background: linear-gradient(145deg, #86dd7b, #4caf50); box-shadow: 0 2px 6px rgba(76, 175, 80, 0.3); }
+    .step:nth-child(3) .step-num { background: linear-gradient(145deg, var(--color-faq-a), #4a7a92); box-shadow: 0 2px 6px rgba(101, 153, 183, 0.35); }
+    .step:nth-child(4) .step-num { background: linear-gradient(145deg, #9b7bb8, #7e57c2); }
+    .step:nth-child(5) .step-num { background: linear-gradient(145deg, #f4a020, #e65100); }
+
+    .step-text {
+      font-size: 10px;
+      padding-top: 3px;
+      color: var(--color-text);
+    }
+
+    .step-text b { font-weight: 700; }
+
+    .rewards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .reward {
+      border-radius: var(--radius);
+      padding: 11px 10px;
+      border: 1px solid transparent;
+    }
+
+    .reward--line {
+      background: linear-gradient(180deg, rgba(255, 178, 120, 0.18) 0%, #fff 40%);
+      border-color: rgba(229, 142, 96, 0.45);
+    }
+
+    .reward--build {
+      background: linear-gradient(180deg, var(--color-faq-a-bg) 0%, #fff 45%);
+      border-color: rgba(101, 153, 183, 0.45);
+    }
+
+    .reward-label {
+      font-size: 10px;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .reward--line .reward-label { color: var(--color-main-dark); }
+    .reward--build .reward-label { color: #3d6d82; }
+
+    .reward-price {
+      font-size: 17pt;
+      font-weight: 800;
+      margin: 4px 0 0;
+      letter-spacing: -0.02em;
+    }
+
+    .reward--line .reward-price { color: var(--color-main-dark); }
+    .reward--build .reward-price { color: #2d5a6e; }
+
+    .reward-suffix { font-size: 10px; font-weight: 500; }
+
+    .reward-note {
+      font-size: 7.5px;
+      margin: 4px 0 0;
+      color: var(--color-muted);
+      line-height: 1.4;
+    }
+
+    .merit-panel {
+      margin-top: 12px;
+      padding: 11px 12px;
+      background: linear-gradient(180deg, rgba(232, 251, 255, 0.6) 0%, #fff 100%);
+      border: 1px solid rgba(135, 231, 255, 0.4);
+      border-radius: var(--radius);
+    }
+
+    .merit-panel h3 {
+      margin: 0 0 6px;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--color-text);
+    }
+
+    .merit-panel ul {
+      margin: 0;
+      padding-left: 1em;
+      font-size: 9px;
+      color: var(--color-text-sub);
+    }
+
+    .merit-panel li { margin-bottom: 3px; }
+
+    .faq-block { margin-top: 11px; }
+
+    .faq-block h3 {
+      margin: 0 0 7px;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--color-text);
+    }
+
+    .faq-item {
+      margin-bottom: 8px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .faq-q {
+      background: rgba(213, 86, 86, 0.08);
+      color: var(--color-faq-q);
+      font-size: 9px;
+      font-weight: 700;
+      padding: 6px 9px;
+      margin: 0;
+      border-left: 3px solid var(--color-faq-q);
+    }
+
+    .faq-a {
+      background: #fff;
+      font-size: 9px;
+      color: var(--color-text-sub);
+      padding: 6px 9px 8px;
+      margin: 0;
+      border-left: 3px solid var(--color-faq-a);
+      line-height: 1.5;
+    }
+
+    .faq-a::before {
+      content: "A.";
+      font-weight: 700;
+      color: var(--color-faq-a);
+      margin-right: 4px;
+    }
+
+    .back-footer {
+      margin-top: 11px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(0, 0, 0, 0.07);
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: 8px;
+      color: var(--color-muted);
+    }
+
+    .back-footer-col { flex: 1; }
+    .back-footer-col strong {
+      display: block;
+      font-size: 9px;
+      color: var(--color-text);
+      margin-bottom: 3px;
+    }
+
+    .back-footer-meta {
+      text-align: right;
+      font-size: 7.5px;
+      line-height: 1.45;
+      color: #9a9a9a;
     }
   </style>
 </head>
-<body class="text-slate-800 text-[10.5pt] leading-snug">
+<body>
 
-  <p class="no-print text-center text-sm text-slate-500 py-3 px-4">
-    ブラウザの「印刷」から A4・縦・両面（短辺とじ推奨）で出力してください。連絡先・QRは貴社情報に差し替えてください。
+  <p class="no-print">
+    印刷：A4 縦・両面（短辺とじ推奨）。QR・連絡先は差し替えてください。
   </p>
 
-  <!-- ==================== 表面 ==================== -->
-  <section class="flyer-page rounded-lg shadow-md border border-slate-200 overflow-hidden" aria-label="チラシ表面">
-    <header class="flex items-start justify-between gap-4 pb-3 border-b-2 border-slate-900">
-      <div>
-        <p class="text-[9px] font-semibold tracking-wider text-slate-500 uppercase mb-0.5">Real estate partnership</p>
-        <h1 class="text-[17pt] font-bold text-slate-900 leading-tight">
-          家づくりで迷うお客様へ<br>
-          <span class="text-blue-700">「つなぐ」だけ</span>のご提案
-        </h1>
-        <p class="text-[11px] text-slate-600 mt-2">土地・不動産は貴社、住まいの専門相談は私どもが分担します。</p>
-      </div>
-      <div class="shrink-0 text-right">
-        <div class="inline-flex items-center justify-center w-[22mm] h-[22mm] bg-slate-100 border-2 border-dashed border-slate-300 text-[8px] text-slate-500 text-center p-1 leading-tight">
-          QR<br>問い合わせ用
+  <!-- 表面 -->
+  <section class="flyer-page" aria-label="チラシ表面">
+    <div class="hero-sky">
+      <p class="eyebrow">Partnership for real estate</p>
+      <div class="hero-row">
+        <div class="hero-copy">
+          <h1>家づくりで迷うお客様へ<br><span class="accent">「つなぐ」だけ</span>のご提案</h1>
+          <p class="lead">土地・不動産は貴社、住まいの専門相談は私どもが分担。売り込みではなく、信頼のお手伝いです。</p>
         </div>
-      </div>
-    </header>
-
-    <div class="mt-3 flex items-center gap-2">
-      <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center shrink-0">
-        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-      </div>
-      <div>
-        <p class="text-[11px] font-bold text-slate-900">Consul t i e株式会社</p>
-        <p class="text-[9.5px] text-slate-600">家づくり・住まいの専門コンサルティング</p>
+        <div class="qr-placeholder" aria-hidden="true">QR<br>問い合わせ用</div>
       </div>
     </div>
-    <ul class="mt-2 space-y-0.5 text-[9.5px] text-slate-600">
-      <li class="flex gap-1.5"><span class="text-blue-600 font-bold">・</span>住宅会社紹介 累計3,000件以上</li>
-      <li class="flex gap-1.5"><span class="text-blue-600 font-bold">・</span>中立の立場で、希望・予算・エリアに合う住宅会社を厳選</li>
-      <li class="flex gap-1.5"><span class="text-blue-600 font-bold">・</span>土地・建物・資金計画まで一貫サポート</li>
-      <li class="flex gap-1.5"><span class="text-blue-600 font-bold">・</span>SNSで家づくり検討層にリーチ（例：Instagram フォロワー9万人超）</li>
+
+    <div class="brand-row">
+      <div class="brand-icon" aria-hidden="true">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+      </div>
+      <div>
+        <p class="brand-name">Consul t i e株式会社</p>
+        <p class="brand-tag">家づくり・住まいの専門コンサルティング</p>
+      </div>
+    </div>
+
+    <ul class="check-list">
+      <li>住宅会社紹介 累計3,000件以上</li>
+      <li>中立の立場で、希望・予算・エリアに合う住宅会社を厳選</li>
+      <li>土地・建物・資金計画まで一貫サポート</li>
+      <li>SNSで家づくり検討層にリーチ（例：Instagram フォロワー9万人超）</li>
     </ul>
 
-    <div class="mt-4 p-3 rounded-xl bg-blue-50 border border-blue-100">
-      <p class="text-[11px] font-bold text-slate-900 mb-1">貴社にお願いしたいこと（これだけです）</p>
-      <p class="text-[10px] text-slate-700">
-        ご来店・ご相談のお客様のうち、<span class="font-semibold text-slate-900">家づくり・住宅会社選びに悩んでいる方</span>へ、私どもの<span class="font-semibold text-blue-800">公式LINE登録</span>をご案内ください。
-      </p>
-      <ul class="mt-2 space-y-0.5 text-[9.5px] text-slate-600">
-        <li>お名前・住所・電話番号・メールアドレスなどは不要で開始できます（設計は要相談）</li>
-        <li>お客様からの相談がない限り、こちらから営業連絡は行いません（条件は契約で明確化）</li>
-      </ul>
-    </div>
-
-    <div class="mt-3 grid grid-cols-3 gap-2">
-      <div class="rounded-lg bg-slate-50 border border-slate-200 p-2">
-        <p class="text-[9px] font-bold text-slate-500 mb-0.5">01</p>
-        <p class="text-[10px] font-semibold text-slate-900">お客様満足</p>
-        <p class="text-[8.5px] text-slate-600 mt-0.5">住宅会社選びまで支援し信頼向上</p>
-      </div>
-      <div class="rounded-lg bg-slate-50 border border-slate-200 p-2">
-        <p class="text-[9px] font-bold text-slate-500 mb-0.5">02</p>
-        <p class="text-[10px] font-semibold text-slate-900">収益機会</p>
-        <p class="text-[8.5px] text-slate-600 mt-0.5">登録・着工など条件に応じた協力金</p>
-      </div>
-      <div class="rounded-lg bg-slate-50 border border-slate-200 p-2">
-        <p class="text-[9px] font-bold text-slate-500 mb-0.5">03</p>
-        <p class="text-[10px] font-semibold text-slate-900">手間は最小</p>
-        <p class="text-[8.5px] text-slate-600 mt-0.5">案内と連携運用に専念しやすい設計</p>
+    <div class="cap-box">
+      <h2 class="cap-box__ttl">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+        貴社にお願いしたいこと（これだけです）
+      </h2>
+      <div class="cap-box__body">
+        <p>ご来店・ご相談のお客様のうち、<span class="highlight">家づくり・住宅会社選びに悩んでいる方</span>へ、私どもの<span class="highlight">公式LINE登録</span>をご案内ください。</p>
+        <ul class="note-list">
+          <li>お名前・住所・電話・メールなどは不要で開始できます（運用ルールは要相談）</li>
+          <li>お客様からの相談がない限り、こちらから営業連絡は行いません（契約で明確化）</li>
+        </ul>
       </div>
     </div>
 
-    <div class="mt-4 pt-3 border-t border-slate-200 flex justify-between items-end gap-3 text-[8.5px] text-slate-500">
+    <div class="benefits">
+      <div class="benefit">
+        <div class="benefit-num">MERIT 01</div>
+        <div class="benefit-title">お客様満足</div>
+        <div class="benefit-desc">住宅会社選びまで支援し、信頼と満足につなげます</div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-num">MERIT 02</div>
+        <div class="benefit-title">収益機会</div>
+        <div class="benefit-desc">登録・着工など、条件に応じた協力金のイメージ</div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-num">MERIT 03</div>
+        <div class="benefit-title">手間は最小</div>
+        <div class="benefit-desc">案内と連携運用へ集中できるシンプル設計</div>
+      </div>
+    </div>
+
+    <div class="contact-strip">
       <div>
-        <p class="font-semibold text-slate-700 text-[9px] mb-0.5">お問い合わせ（差し替え）</p>
-        <p>TEL：　　　　　　　　　　／ Mail：　　　　　　　　　　</p>
-        <p>担当：　　　　　　　　　　／ Web：　　　　　　　　　　</p>
-      </div>
-      <p class="text-[8px] text-slate-400 max-w-[45mm] text-right">協力条件・特典・表記は貴社と協議のうえ、契約書・覚書で定めます。</p>
+        <strong>お問い合わせ（差し替え）</strong>
+        TEL：　　　　　　　　　　／ Mail：　　　　　　　　　　<br>
+        担当：　　　　　　　　　　／ Web：　　　　　　　　　　</div>
+      <p class="disclaimer-mini">協力条件・特典・表記は貴社と協議のうえ、契約書・覚書で定めます。</p>
     </div>
   </section>
 
-  <!-- ==================== 裏面 ==================== -->
-  <section class="flyer-page rounded-lg shadow-md border border-slate-200 overflow-hidden" aria-label="チラシ裏面">
-    <h2 class="text-[13pt] font-bold text-slate-900 border-b border-slate-200 pb-2">連携の流れ・条件のイメージ</h2>
-    <p class="text-[9px] text-slate-500 mt-1">詳細・定義（同一顧客・支払サイト等）は契約で取り決めます。下図は説明用です。</p>
+  <!-- 裏面 -->
+  <section class="flyer-page" aria-label="チラシ裏面">
+    <h2 class="back-title">連携の流れ・条件のイメージ</h2>
+    <p class="back-lead">詳細・定義（同一顧客・支払サイト等）は契約で取り決めます。下記は説明用の一例です。</p>
 
-    <ol class="mt-3 space-y-1.5">
-      <li class="flex gap-2 items-start">
-        <span class="shrink-0 w-5 h-5 rounded-full bg-slate-800 text-white text-[9px] font-bold flex items-center justify-center">1</span>
-        <span class="text-[10px]"><span class="font-semibold text-slate-900">不動産会社様</span>：お客様へ公式LINE登録をご案内</span>
-      </li>
-      <li class="flex gap-2 items-start">
-        <span class="shrink-0 w-5 h-5 rounded-full bg-emerald-600 text-white text-[9px] font-bold flex items-center justify-center">2</span>
-        <span class="text-[10px]"><span class="font-semibold text-slate-900">お客様</span>：公式LINEで家づくり相談（無料）</span>
-      </li>
-      <li class="flex gap-2 items-start">
-        <span class="shrink-0 w-5 h-5 rounded-full bg-indigo-600 text-white text-[9px] font-bold flex items-center justify-center">3</span>
-        <span class="text-[10px]"><span class="font-semibold text-slate-900">Consul t i e</span>：ご希望があれば最適な住宅会社をご紹介</span>
-      </li>
-      <li class="flex gap-2 items-start">
-        <span class="shrink-0 w-5 h-5 rounded-full bg-violet-600 text-white text-[9px] font-bold flex items-center justify-center">4</span>
-        <span class="text-[10px]"><span class="font-semibold text-slate-900">ご紹介先</span>で建築契約が成立</span>
-      </li>
-      <li class="flex gap-2 items-start">
-        <span class="shrink-0 w-5 h-5 rounded-full bg-amber-600 text-white text-[9px] font-bold flex items-center justify-center">5</span>
-        <span class="text-[10px]"><span class="font-semibold text-slate-900">着工タイミング</span>で貴社へ協力金をお支払い（条件付）</span>
-      </li>
+    <ol class="steps">
+      <li class="step"><span class="step-num">1</span><span class="step-text"><b>不動産会社様</b>：お客様へ公式LINE登録をご案内</span></li>
+      <li class="step"><span class="step-num">2</span><span class="step-text"><b>お客様</b>：公式LINEで家づくり相談（無料）</span></li>
+      <li class="step"><span class="step-num">3</span><span class="step-text"><b>Consul t i e</b>：ご希望があれば最適な住宅会社をご紹介</span></li>
+      <li class="step"><span class="step-num">4</span><span class="step-text"><b>ご紹介先</b>で建築契約が成立</span></li>
+      <li class="step"><span class="step-num">5</span><span class="step-text"><b>着工タイミング</b>で貴社へ協力金をお支払い（条件付）</span></li>
     </ol>
 
-    <div class="mt-3 grid grid-cols-2 gap-2">
-      <div class="rounded-lg border border-emerald-200 bg-emerald-50/80 p-2.5">
-        <p class="text-[10px] font-bold text-emerald-900">LINE登録が発生した場合（例）</p>
-        <p class="text-[16pt] font-bold text-emerald-800 mt-1">1,000円<span class="text-[10px] font-normal">／件</span></p>
-        <p class="text-[8px] text-emerald-900/80 mt-0.5">定義・無効登録の扱いは契約で規定</p>
+    <div class="rewards">
+      <div class="reward reward--line">
+        <p class="reward-label">LINE登録が発生した場合（例）</p>
+        <p class="reward-price">1,000<span class="reward-suffix">円／件</span></p>
+        <p class="reward-note">定義・無効登録の扱いは契約で規定します。</p>
       </div>
-      <div class="rounded-lg border border-indigo-200 bg-indigo-50/80 p-2.5">
-        <p class="text-[10px] font-bold text-indigo-900">建築契約・着工が確定した場合（例）</p>
-        <p class="text-[16pt] font-bold text-indigo-800 mt-1">50万円</p>
-        <p class="text-[8px] text-indigo-900/80 mt-0.5">着工の定義・重複紹介は事前に合意</p>
+      <div class="reward reward--build">
+        <p class="reward-label">建築契約・着工が確定した場合（例）</p>
+        <p class="reward-price">50<span class="reward-suffix">万円</span></p>
+        <p class="reward-note">着工の定義・重複紹介などは事前に合意します。</p>
       </div>
     </div>
 
-    <div class="mt-3 rounded-lg bg-slate-50 border border-slate-200 p-2.5">
-      <p class="text-[10px] font-bold text-slate-900 mb-1">お客様にとってのメリット（案内時にお使いください）</p>
-      <ul class="text-[9px] text-slate-600 space-y-0.5">
-        <li>・不動産会社だけではカバーしきれない「住宅会社の比較・見積・間取り」の第三者視点</li>
-        <li>・無料、messaging を中心とした相談（押し売りにならない運用を徹底）</li>
-        <li>・予算・好みに合う会社に情報を絞れる／土地探し中・営業後も相談可能</li>
+    <div class="merit-panel">
+      <h3>お客様にとってのメリット（ご案内にご利用ください）</h3>
+      <ul>
+        <li>不動産会社だけではカバーしきれない「住宅会社の比較・見積・間取り」の第三者視点</li>
+        <li>無料・LINEを中心とした相談（お客様のペースを尊重）</li>
+        <li>予算・好みに合う会社に情報を絞れる／土地探し中・契約後も相談可能</li>
       </ul>
     </div>
 
-    <div class="mt-3">
-      <p class="text-[10px] font-bold text-slate-900 mb-1">よくあるご質問（短答）</p>
-      <dl class="text-[9px] space-y-1.5">
-        <div>
-          <dt class="font-semibold text-slate-800">Q. 個人情報は必須ですか？</dt>
-          <dd class="text-slate-600">A. LINE登録時点では不要を原則とし、ルールは事前共有します。</dd>
-        </div>
-        <div>
-          <dt class="font-semibold text-slate-800">Q. こちらからお客様に営業されますか？</dt>
-          <dd class="text-slate-600">A. お客様からの相談がない限り、当方から貴社・お客様へ営業連絡は行いません（契約条項で担保）。</dd>
-        </div>
-        <div>
-          <dt class="font-semibold text-slate-800">Q. 特典（QUOカード等）は？</dt>
-          <dd class="text-slate-600">A. 内容・周知方法は貴社と協議し、景品表示法等に沿って運用します。</dd>
-        </div>
-      </dl>
+    <div class="faq-block">
+      <h3>よくあるご質問</h3>
+      <div class="faq-item">
+        <p class="faq-q">Q. 個人情報は必須ですか？</p>
+        <p class="faq-a">LINE登録時点では不要を原則とし、ルールは事前共有します。</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Q. こちらからお客様に営業されますか？</p>
+        <p class="faq-a">お客様からの相談がない限り、当方から貴社・お客様へ営業連絡は行いません（契約条項で担保します）。</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Q. 特典（QUOカード等）は？</p>
+        <p class="faq-a">内容・周知方法は貴社と協議し、景品表示法等に沿って運用します。</p>
+      </div>
     </div>
 
-    <div class="mt-3 flex gap-3 items-start text-[8px] text-slate-500 border-t border-slate-100 pt-2">
-      <div class="flex-1">
-        <p class="font-semibold text-slate-600 text-[9px]">オプション（要相談）</p>
-        <p class="mt-0.5">店内POP・チラシ同梱、SNSでの相互紹介など柔軟に対応します。</p>
+    <div class="back-footer">
+      <div class="back-footer-col">
+        <strong>オプション（要相談）</strong>
+        店内POP・チラシ同梱、SNSでの相互紹介など柔軟に対応します。
       </div>
-      <div class="shrink-0 w-px h-10 bg-slate-200"></div>
-      <div class="text-[8px] text-slate-400 text-right leading-tight">
+      <div class="back-footer-meta">
         Consul t i e株式会社<br>
-        （所在地・登録番号等はここに記載）<br>
-        <span class="text-[7px]">本チラシは2026年時点の案内イメージです。最終条件は契約書をご確認ください。</span>
+        （所在地・登録番号等を記載）<br>
+        <span style="display:block;margin-top:4px;">本チラシは案内用イメージです。最終条件は契約書をご確認ください。</span>
       </div>
     </div>
   </section>
