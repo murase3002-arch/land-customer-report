@@ -1,0 +1,70 @@
+/**
+ * Consultie — チラシ・LP 共通デザイントークン
+ * インディゴ基調 + ティール／コーラル／スカイ／バイオレット／エメラルドのマルチアクセント（※黄色ベースは使用しません）
+ */
+:root {
+  --color-bg: #f8fafc;
+  --color-bg-screen: #eef2f7;
+  --color-card: #ffffff;
+  --color-text: #1e293b;
+  --color-text-sub: #475569;
+  --color-muted: #64748b;
+
+  /* ブランド・CTA */
+  --color-primary: #4f46e5;
+  --color-primary-mid: #6366f1;
+  --color-primary-dark: #3730a3;
+  --color-primary-soft: rgba(79, 70, 229, 0.14);
+
+  --accent-teal: #0d9488;
+  --accent-teal-dark: #0f766e;
+  --accent-coral: #e11d48;
+  --accent-coral-dark: #9f1239;
+  --accent-sky: #0284c7;
+  --accent-sky-light: #38bdf8;
+  --accent-violet: #7c3aed;
+  --accent-emerald: #059669;
+  --accent-fuchsia: #c026d3;
+
+  --color-link: #2563eb;
+
+  /* 後方互換（既存クラス） */
+  --color-main: var(--color-primary);
+  --color-main-dark: var(--color-primary-dark);
+  --color-main-soft: var(--color-primary-soft);
+
+  /* ヒーロー背景 */
+  --gradient-hero-start: #eef2ff;
+  --gradient-hero-mid: #e0f2fe;
+  --gradient-hero-end: #ffffff;
+  --hero-glow: rgba(124, 58, 237, 0.16);
+
+  --gradient-1: var(--gradient-hero-start);
+  --gradient-2: #7dd3fc;
+  --grad-mid: #7dd3fc;
+
+  /* FAQ */
+  --color-faq-q: #be123c;
+  --color-faq-q-bg: rgba(190, 18, 60, 0.09);
+  --color-faq-a: #0f766e;
+  --color-faq-a-bg: rgba(13, 148, 136, 0.12);
+  --color-faq-a-border: rgba(13, 148, 136, 0.42);
+
+  /* 報酬カード */
+  --reward-line-tint: rgba(225, 29, 72, 0.11);
+  --reward-line-border: rgba(225, 29, 72, 0.36);
+  --reward-build-tint: rgba(13, 148, 136, 0.12);
+  --reward-build-border: rgba(13, 148, 136, 0.38);
+
+  --radius: 10px;
+  --radius-sm: 8px;
+  --radius-pill: 9999px;
+  --shadow-sm: 0 2px 12px rgba(30, 41, 59, 0.07);
+  --shadow: 0 8px 32px rgba(30, 41, 59, 0.1);
+  --shadow-primary: 0 4px 20px rgba(79, 70, 229, 0.3);
+
+  --font: "Yu Gothic UI", "YuGothic", "游ゴシック体", "Yu Gothic", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  --max: 1080px;
+  --ls: 0.025em;
+  --fw: 500;
+}
