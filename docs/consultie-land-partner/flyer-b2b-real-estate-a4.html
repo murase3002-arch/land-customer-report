@@ -16,7 +16,7 @@
       color: var(--color-text);
       line-height: 1.55;
       font-size: 10.5pt;
-      background: var(--color-bg-screen);
+      background: var(--color-bg);
     }
 
     @page { size: A4 portrait; margin: 0; }
@@ -31,13 +31,17 @@
         box-shadow: none !important;
         margin: 0 !important;
         border-radius: 0 !important;
-        background: var(--color-bg) !important;
+        background: var(--color-card) !important;
       }
       .no-print { display: none !important; }
     }
 
     @media screen {
-      .flyer-page { margin: 1.25rem auto; box-shadow: var(--shadow-sm); }
+      .flyer-page {
+        margin: 1.25rem auto;
+        box-shadow: var(--shadow);
+        border-radius: var(--radius);
+      }
     }
 
     .no-print {
@@ -53,12 +57,11 @@
       width: 210mm;
       min-height: 297mm;
       padding: 11mm 13mm;
-      background: var(--color-bg);
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      border-radius: 2px;
+      background: var(--color-card);
+      border: 1px solid rgba(0, 0, 0, 0.05);
     }
 
-    /* ヒーローバンド（参考LPの水色グラデ） */
+    /* ヒーローバンド（LPヒーローと同一トークン） */
     .hero-sky {
       margin: -3mm -4mm 10px -4mm;
       padding: 10px 14px 14px;
@@ -247,11 +250,11 @@
     }
 
     .benefit {
-      background: #fff;
+      background: var(--color-card);
       border-radius: var(--radius-sm);
       padding: 9px 8px;
       border: 1px solid rgba(0, 0, 0, 0.06);
-      box-shadow: 0 1px 6px rgba(51, 51, 51, 0.04);
+      box-shadow: var(--shadow-sm);
       position: relative;
       overflow: hidden;
     }
@@ -570,7 +573,7 @@
       <li>住宅会社紹介 累計3,000件以上</li>
       <li>中立の立場で、希望・予算・エリアに合う住宅会社を厳選</li>
       <li>土地・建物・資金計画まで一貫サポート</li>
-      <li>SNSで家づくり検討層にリーチ（例：Instagram フォロワー9万人超）</li>
+      <li>SNSで家づくり検討層にリーチ（例：Instagram フォロワー10万人超）</li>
     </ul>
 
     <div class="cap-box">
