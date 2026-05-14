@@ -1,0 +1,33 @@
+name: 土地なし管理客 週次レポート
+
+on:
+  schedule:
+    # 毎週木曜日 9:00 JST（UTC 0:00）
+    - cron: '0 0 * * 4'
+  workflow_dispatch:  # 手動実行ボタン
+
+jobs:
+  send-report:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install --no-save @anthropic-ai/sdk nodemailer googleapis
+
+      - name: Send weekly land customer report
+        run: node scripts/land-customer-report.js
+        env:
+          ANTHROPIC_API_KEY:            ${{ secrets.ANTHROPIC_API_KEY }}
+          GOOGLE_SERVICE_ACCOUNT_KEY:   ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
+          GMAIL_USER:                   ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD:           ${{ secrets.GMAIL_APP_PASSWORD }}
+          LAND_REPORT_TO_EMAIL:         ${{ secrets.LAND_REPORT_TO_EMAIL }}

@@ -1,0 +1,49 @@
+# ============================================================
+# 土地なし管理客 週次フォローアップレポート設定
+# ============================================================
+
+project:
+  name: "土地なし管理客 週次レポート"
+  description: "未フォロー客の洗い出しと顧客データ整理"
+
+# Google スプレッドシート設定
+spreadsheet:
+  # スプレッドシートIDの確認方法:
+  # https://docs.google.com/spreadsheets/d/★ここ★/edit
+  id: "YOUR_SPREADSHEET_ID"
+  sheet_name: "シート1"   # タブ名が違う場合は変更
+
+  # 列マッピング（A列=1, B列=2 …）
+  columns:
+    first_meeting:    1   # A: 初回接客日
+    customer_name:    2   # B: お客様名
+    details:          3   # C: 内容（エリア・年収・年齢・予算・自主検討有無）
+    follow_status:    4   # D: フォロー状況
+    referral:         5   # E: 紹介有無
+    referral_hm:      6   # F: 紹介HM契約
+    land_contract:    7   # G: 土地契約
+    loan_deadline:    8   # H: ローン特約期日
+    loan_applied:     9   # I: ローン本申込
+    settlement_sent: 10   # J: 決済案内を送ったかどうか
+
+  # データが始まる行（1行目がヘッダーなら 2）
+  data_start_row: 2
+
+# 未フォロー判定
+follow_up:
+  # フォロー状況が空欄 or 以下の値のとき「未フォロー」と判定
+  uncontacted_values:
+    - ""          # 空欄
+    - "未"
+    - "未対応"
+    - "未フォロー"
+  # 初回接客日からこの日数以上経過かつフォロー状況が空欄のとき警告
+  days_since_first_meeting_alert: 30
+
+  # ローン特約期日がこの日数以内に迫っていたら「期日警告」とする
+  loan_deadline_alert_days: 14
+
+# メール設定
+email:
+  to: "YOUR_EMAIL@gmail.com"
+  subject_prefix: "【土地なし管理客】週次フォローアップレポート"
